@@ -1,0 +1,3371 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="urn:sap-com:document:sap:rfc:functions" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsoap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="urn:sap-com:document:sap:rfc:functions" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:documentation>
+    <sidl:sidl xmlns:sidl="http://www.sap.com/2007/03/sidl" />
+  </wsdl:documentation>
+  <wsp:UsingPolicy wsdl:required="true" />
+  <wsp:Policy wsu:Id="BN_BN_binding_terminal_functions">
+    <saptrnbnd:OptimizedXMLTransfer uri="http://xml.sap.com/2006/11/esi/esp/binxml" xmlns:saptrnbnd="http://www.sap.com/webas/710/soap/features/transportbinding/" wsp:Optional="true" />
+    <saptrnbnd:OptimizedMimeSerialization xmlns:saptrnbnd="http://schemas.xmlsoap.org/ws/2004/09/policy/optimizedmimeserialization" wsp:Optional="true" />
+    <sapattahnd:Enabled xmlns:sapattahnd="http://www.sap.com/710/features/attachment/">false</sapattahnd:Enabled>
+    <wsp:ExactlyOne xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy">
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702" xmlns:sapsp="http://www.sap.com/webas/630/soap/features/security/policy" xmlns:wsa="http://www.w3.org/2005/08/addressing" xmlns:wst="http://docs.oasis-open.org/ws-sx/ws-trust/200512" xmlns:wsu="http://schemas.xmlsoap.org/ws/2002/07/utility" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken>
+                  <wsp:Policy>
+                    <sp:HttpBasicAuthentication />
+                  </wsp:Policy>
+                </sp:HttpsToken>
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic128Rsa15 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+    <wsaw:UsingAddressing xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" wsp:Optional="true" />
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="BN_BN_binding_terminal_functions_SOAP12">
+    <saptrnbnd:OptimizedXMLTransfer uri="http://xml.sap.com/2006/11/esi/esp/binxml" xmlns:saptrnbnd="http://www.sap.com/webas/710/soap/features/transportbinding/" wsp:Optional="true" />
+    <saptrnbnd:OptimizedMimeSerialization xmlns:saptrnbnd="http://schemas.xmlsoap.org/ws/2004/09/policy/optimizedmimeserialization" wsp:Optional="true" />
+    <sapattahnd:Enabled xmlns:sapattahnd="http://www.sap.com/710/features/attachment/">false</sapattahnd:Enabled>
+    <wsp:ExactlyOne xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy">
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://docs.oasis-open.org/ws-sx/ws-securitypolicy/200702" xmlns:sapsp="http://www.sap.com/webas/630/soap/features/security/policy" xmlns:wsa="http://www.w3.org/2005/08/addressing" xmlns:wst="http://docs.oasis-open.org/ws-sx/ws-trust/200512" xmlns:wsu="http://schemas.xmlsoap.org/ws/2002/07/utility" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken>
+                  <wsp:Policy>
+                    <sp:HttpBasicAuthentication />
+                  </wsp:Policy>
+                </sp:HttpsToken>
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic128Rsa15 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+    <wsaw:UsingAddressing xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" wsp:Optional="true" />
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="IF_IF_ZMM_WS_TERMINAL_FUNCTIONS">
+    <sapsession:Session xmlns:sapsession="http://www.sap.com/webas/630/soap/features/session/">
+      <sapsession:enableSession>false</sapsession:enableSession>
+    </sapsession:Session>
+    <sapcentraladmin:CentralAdministration xmlns:sapcentraladmin="http://www.sap.com/webas/700/soap/features/CentralAdministration/" wsp:Optional="true">
+      <sapcentraladmin:BusinessApplicationID>50C80CE223510870E10080000A10022F</sapcentraladmin:BusinessApplicationID>
+    </sapcentraladmin:CentralAdministration>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="OP_IF_OP_ZMM005_FISKAYITDURUMU">
+    <sapcomhnd:enableCommit xmlns:sapcomhnd="http://www.sap.com/NW05/soap/features/commit/">false</sapcomhnd:enableCommit>
+    <sapblock:enableBlocking xmlns:sapblock="http://www.sap.com/NW05/soap/features/blocking/">true</sapblock:enableBlocking>
+    <saptrhnw05:required xmlns:saptrhnw05="http://www.sap.com/NW05/soap/features/transaction/">no</saptrhnw05:required>
+    <saprmnw05:enableWSRM xmlns:saprmnw05="http://www.sap.com/NW05/soap/features/wsrm/">false</saprmnw05:enableWSRM>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="OP_IF_OP_ZMM005_GOODSMVT_CANCEL">
+    <sapcomhnd:enableCommit xmlns:sapcomhnd="http://www.sap.com/NW05/soap/features/commit/">false</sapcomhnd:enableCommit>
+    <sapblock:enableBlocking xmlns:sapblock="http://www.sap.com/NW05/soap/features/blocking/">true</sapblock:enableBlocking>
+    <saptrhnw05:required xmlns:saptrhnw05="http://www.sap.com/NW05/soap/features/transaction/">no</saptrhnw05:required>
+    <saprmnw05:enableWSRM xmlns:saprmnw05="http://www.sap.com/NW05/soap/features/wsrm/">false</saprmnw05:enableWSRM>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="OP_IF_OP_ZMM007_TOP_IST_MLZ_SAVE">
+    <sapcomhnd:enableCommit xmlns:sapcomhnd="http://www.sap.com/NW05/soap/features/commit/">false</sapcomhnd:enableCommit>
+    <sapblock:enableBlocking xmlns:sapblock="http://www.sap.com/NW05/soap/features/blocking/">true</sapblock:enableBlocking>
+    <saptrhnw05:required xmlns:saptrhnw05="http://www.sap.com/NW05/soap/features/transaction/">no</saptrhnw05:required>
+    <saprmnw05:enableWSRM xmlns:saprmnw05="http://www.sap.com/NW05/soap/features/wsrm/">false</saprmnw05:enableWSRM>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="OP_IF_OP_ZMM005_MALZEMELOKASYON_01">
+    <sapcomhnd:enableCommit xmlns:sapcomhnd="http://www.sap.com/NW05/soap/features/commit/">false</sapcomhnd:enableCommit>
+    <sapblock:enableBlocking xmlns:sapblock="http://www.sap.com/NW05/soap/features/blocking/">true</sapblock:enableBlocking>
+    <saptrhnw05:required xmlns:saptrhnw05="http://www.sap.com/NW05/soap/features/transaction/">no</saptrhnw05:required>
+    <saprmnw05:enableWSRM xmlns:saprmnw05="http://www.sap.com/NW05/soap/features/wsrm/">false</saprmnw05:enableWSRM>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="OP_IF_OP_ZMM005_MALZEMELOKASYON_02">
+    <sapcomhnd:enableCommit xmlns:sapcomhnd="http://www.sap.com/NW05/soap/features/commit/">false</sapcomhnd:enableCommit>
+    <sapblock:enableBlocking xmlns:sapblock="http://www.sap.com/NW05/soap/features/blocking/">true</sapblock:enableBlocking>
+    <saptrhnw05:required xmlns:saptrhnw05="http://www.sap.com/NW05/soap/features/transaction/">no</saptrhnw05:required>
+    <saprmnw05:enableWSRM xmlns:saprmnw05="http://www.sap.com/NW05/soap/features/wsrm/">false</saprmnw05:enableWSRM>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="OP_IF_OP_ZMM005_MODE">
+    <sapcomhnd:enableCommit xmlns:sapcomhnd="http://www.sap.com/NW05/soap/features/commit/">false</sapcomhnd:enableCommit>
+    <sapblock:enableBlocking xmlns:sapblock="http://www.sap.com/NW05/soap/features/blocking/">true</sapblock:enableBlocking>
+    <saptrhnw05:required xmlns:saptrhnw05="http://www.sap.com/NW05/soap/features/transaction/">no</saptrhnw05:required>
+    <saprmnw05:enableWSRM xmlns:saprmnw05="http://www.sap.com/NW05/soap/features/wsrm/">false</saprmnw05:enableWSRM>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="OP_IF_OP_ZMM005_RULOGIRIS_01">
+    <sapcomhnd:enableCommit xmlns:sapcomhnd="http://www.sap.com/NW05/soap/features/commit/">false</sapcomhnd:enableCommit>
+    <sapblock:enableBlocking xmlns:sapblock="http://www.sap.com/NW05/soap/features/blocking/">true</sapblock:enableBlocking>
+    <saptrhnw05:required xmlns:saptrhnw05="http://www.sap.com/NW05/soap/features/transaction/">no</saptrhnw05:required>
+    <saprmnw05:enableWSRM xmlns:saprmnw05="http://www.sap.com/NW05/soap/features/wsrm/">false</saprmnw05:enableWSRM>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="OP_IF_OP_ZMM007_TOP_IST_MLZ_LIST">
+    <sapcomhnd:enableCommit xmlns:sapcomhnd="http://www.sap.com/NW05/soap/features/commit/">false</sapcomhnd:enableCommit>
+    <sapblock:enableBlocking xmlns:sapblock="http://www.sap.com/NW05/soap/features/blocking/">true</sapblock:enableBlocking>
+    <saptrhnw05:required xmlns:saptrhnw05="http://www.sap.com/NW05/soap/features/transaction/">no</saptrhnw05:required>
+    <saprmnw05:enableWSRM xmlns:saprmnw05="http://www.sap.com/NW05/soap/features/wsrm/">false</saprmnw05:enableWSRM>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="OP_IF_OP_ZMM005_RULOGIRIS_02">
+    <sapcomhnd:enableCommit xmlns:sapcomhnd="http://www.sap.com/NW05/soap/features/commit/">false</sapcomhnd:enableCommit>
+    <sapblock:enableBlocking xmlns:sapblock="http://www.sap.com/NW05/soap/features/blocking/">true</sapblock:enableBlocking>
+    <saptrhnw05:required xmlns:saptrhnw05="http://www.sap.com/NW05/soap/features/transaction/">no</saptrhnw05:required>
+    <saprmnw05:enableWSRM xmlns:saprmnw05="http://www.sap.com/NW05/soap/features/wsrm/">false</saprmnw05:enableWSRM>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="OP_IF_OP_ZMM005_SAYIM">
+    <sapcomhnd:enableCommit xmlns:sapcomhnd="http://www.sap.com/NW05/soap/features/commit/">false</sapcomhnd:enableCommit>
+    <sapblock:enableBlocking xmlns:sapblock="http://www.sap.com/NW05/soap/features/blocking/">true</sapblock:enableBlocking>
+    <saptrhnw05:required xmlns:saptrhnw05="http://www.sap.com/NW05/soap/features/transaction/">no</saptrhnw05:required>
+    <saprmnw05:enableWSRM xmlns:saprmnw05="http://www.sap.com/NW05/soap/features/wsrm/">false</saprmnw05:enableWSRM>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="OP_IF_OP_ZMM005_SAYIM_RESET">
+    <sapcomhnd:enableCommit xmlns:sapcomhnd="http://www.sap.com/NW05/soap/features/commit/">false</sapcomhnd:enableCommit>
+    <sapblock:enableBlocking xmlns:sapblock="http://www.sap.com/NW05/soap/features/blocking/">true</sapblock:enableBlocking>
+    <saptrhnw05:required xmlns:saptrhnw05="http://www.sap.com/NW05/soap/features/transaction/">no</saptrhnw05:required>
+    <saprmnw05:enableWSRM xmlns:saprmnw05="http://www.sap.com/NW05/soap/features/wsrm/">false</saprmnw05:enableWSRM>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="OP_IF_OP_ZMM007_TOPLU_ALAN_DEGIS_SAVE">
+    <sapcomhnd:enableCommit xmlns:sapcomhnd="http://www.sap.com/NW05/soap/features/commit/">false</sapcomhnd:enableCommit>
+    <sapblock:enableBlocking xmlns:sapblock="http://www.sap.com/NW05/soap/features/blocking/">true</sapblock:enableBlocking>
+    <saptrhnw05:required xmlns:saptrhnw05="http://www.sap.com/NW05/soap/features/transaction/">no</saptrhnw05:required>
+    <saprmnw05:enableWSRM xmlns:saprmnw05="http://www.sap.com/NW05/soap/features/wsrm/">false</saprmnw05:enableWSRM>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="OP_IF_OP_ZMM005_SAYIM_SAVE">
+    <sapcomhnd:enableCommit xmlns:sapcomhnd="http://www.sap.com/NW05/soap/features/commit/">false</sapcomhnd:enableCommit>
+    <sapblock:enableBlocking xmlns:sapblock="http://www.sap.com/NW05/soap/features/blocking/">true</sapblock:enableBlocking>
+    <saptrhnw05:required xmlns:saptrhnw05="http://www.sap.com/NW05/soap/features/transaction/">no</saptrhnw05:required>
+    <saprmnw05:enableWSRM xmlns:saprmnw05="http://www.sap.com/NW05/soap/features/wsrm/">false</saprmnw05:enableWSRM>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="OP_IF_OP_ZMM005_TERMINAL_BAKIM">
+    <sapcomhnd:enableCommit xmlns:sapcomhnd="http://www.sap.com/NW05/soap/features/commit/">false</sapcomhnd:enableCommit>
+    <sapblock:enableBlocking xmlns:sapblock="http://www.sap.com/NW05/soap/features/blocking/">true</sapblock:enableBlocking>
+    <saptrhnw05:required xmlns:saptrhnw05="http://www.sap.com/NW05/soap/features/transaction/">no</saptrhnw05:required>
+    <saprmnw05:enableWSRM xmlns:saprmnw05="http://www.sap.com/NW05/soap/features/wsrm/">false</saprmnw05:enableWSRM>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="OP_IF_OP_ZMM005_TERMINAL_GIRIS">
+    <sapcomhnd:enableCommit xmlns:sapcomhnd="http://www.sap.com/NW05/soap/features/commit/">false</sapcomhnd:enableCommit>
+    <sapblock:enableBlocking xmlns:sapblock="http://www.sap.com/NW05/soap/features/blocking/">true</sapblock:enableBlocking>
+    <saptrhnw05:required xmlns:saptrhnw05="http://www.sap.com/NW05/soap/features/transaction/">no</saptrhnw05:required>
+    <saprmnw05:enableWSRM xmlns:saprmnw05="http://www.sap.com/NW05/soap/features/wsrm/">false</saprmnw05:enableWSRM>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="OP_IF_OP_ZMM005_UYSTOKNAKLI_01">
+    <sapcomhnd:enableCommit xmlns:sapcomhnd="http://www.sap.com/NW05/soap/features/commit/">false</sapcomhnd:enableCommit>
+    <sapblock:enableBlocking xmlns:sapblock="http://www.sap.com/NW05/soap/features/blocking/">true</sapblock:enableBlocking>
+    <saptrhnw05:required xmlns:saptrhnw05="http://www.sap.com/NW05/soap/features/transaction/">no</saptrhnw05:required>
+    <saprmnw05:enableWSRM xmlns:saprmnw05="http://www.sap.com/NW05/soap/features/wsrm/">false</saprmnw05:enableWSRM>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="OP_IF_OP_ZMM007_TOPLU_ALAN_DEGIS_BUL">
+    <sapcomhnd:enableCommit xmlns:sapcomhnd="http://www.sap.com/NW05/soap/features/commit/">false</sapcomhnd:enableCommit>
+    <sapblock:enableBlocking xmlns:sapblock="http://www.sap.com/NW05/soap/features/blocking/">true</sapblock:enableBlocking>
+    <saptrhnw05:required xmlns:saptrhnw05="http://www.sap.com/NW05/soap/features/transaction/">no</saptrhnw05:required>
+    <saprmnw05:enableWSRM xmlns:saprmnw05="http://www.sap.com/NW05/soap/features/wsrm/">false</saprmnw05:enableWSRM>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="OP_IF_OP_ZMM005_UYSTOKNAKLI_03">
+    <sapcomhnd:enableCommit xmlns:sapcomhnd="http://www.sap.com/NW05/soap/features/commit/">false</sapcomhnd:enableCommit>
+    <sapblock:enableBlocking xmlns:sapblock="http://www.sap.com/NW05/soap/features/blocking/">true</sapblock:enableBlocking>
+    <saptrhnw05:required xmlns:saptrhnw05="http://www.sap.com/NW05/soap/features/transaction/">no</saptrhnw05:required>
+    <saprmnw05:enableWSRM xmlns:saprmnw05="http://www.sap.com/NW05/soap/features/wsrm/">false</saprmnw05:enableWSRM>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="OP_IF_OP_ZMM005_UYSTOKNAKLI_04">
+    <sapcomhnd:enableCommit xmlns:sapcomhnd="http://www.sap.com/NW05/soap/features/commit/">false</sapcomhnd:enableCommit>
+    <sapblock:enableBlocking xmlns:sapblock="http://www.sap.com/NW05/soap/features/blocking/">true</sapblock:enableBlocking>
+    <saptrhnw05:required xmlns:saptrhnw05="http://www.sap.com/NW05/soap/features/transaction/">no</saptrhnw05:required>
+    <saprmnw05:enableWSRM xmlns:saprmnw05="http://www.sap.com/NW05/soap/features/wsrm/">false</saprmnw05:enableWSRM>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="OP_IF_OP_ZMM005_UYSTOKNAKLI_05">
+    <sapcomhnd:enableCommit xmlns:sapcomhnd="http://www.sap.com/NW05/soap/features/commit/">false</sapcomhnd:enableCommit>
+    <sapblock:enableBlocking xmlns:sapblock="http://www.sap.com/NW05/soap/features/blocking/">true</sapblock:enableBlocking>
+    <saptrhnw05:required xmlns:saptrhnw05="http://www.sap.com/NW05/soap/features/transaction/">no</saptrhnw05:required>
+    <saprmnw05:enableWSRM xmlns:saprmnw05="http://www.sap.com/NW05/soap/features/wsrm/">false</saprmnw05:enableWSRM>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="OP_IF_OP_ZMM007_TOPLU_ALAN_DEGIS">
+    <sapcomhnd:enableCommit xmlns:sapcomhnd="http://www.sap.com/NW05/soap/features/commit/">false</sapcomhnd:enableCommit>
+    <sapblock:enableBlocking xmlns:sapblock="http://www.sap.com/NW05/soap/features/blocking/">true</sapblock:enableBlocking>
+    <saptrhnw05:required xmlns:saptrhnw05="http://www.sap.com/NW05/soap/features/transaction/">no</saptrhnw05:required>
+    <saprmnw05:enableWSRM xmlns:saprmnw05="http://www.sap.com/NW05/soap/features/wsrm/">false</saprmnw05:enableWSRM>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="OP_IF_OP_ZMM005_UYSTOKNAKLI_06">
+    <sapcomhnd:enableCommit xmlns:sapcomhnd="http://www.sap.com/NW05/soap/features/commit/">false</sapcomhnd:enableCommit>
+    <sapblock:enableBlocking xmlns:sapblock="http://www.sap.com/NW05/soap/features/blocking/">true</sapblock:enableBlocking>
+    <saptrhnw05:required xmlns:saptrhnw05="http://www.sap.com/NW05/soap/features/transaction/">no</saptrhnw05:required>
+    <saprmnw05:enableWSRM xmlns:saprmnw05="http://www.sap.com/NW05/soap/features/wsrm/">false</saprmnw05:enableWSRM>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="OP_IF_OP_ZMM005_UYSTOKNAKLI_07">
+    <sapcomhnd:enableCommit xmlns:sapcomhnd="http://www.sap.com/NW05/soap/features/commit/">false</sapcomhnd:enableCommit>
+    <sapblock:enableBlocking xmlns:sapblock="http://www.sap.com/NW05/soap/features/blocking/">true</sapblock:enableBlocking>
+    <saptrhnw05:required xmlns:saptrhnw05="http://www.sap.com/NW05/soap/features/transaction/">no</saptrhnw05:required>
+    <saprmnw05:enableWSRM xmlns:saprmnw05="http://www.sap.com/NW05/soap/features/wsrm/">false</saprmnw05:enableWSRM>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="OP_IF_OP_ZMM005_UYSTOKNAKLI_08">
+    <sapcomhnd:enableCommit xmlns:sapcomhnd="http://www.sap.com/NW05/soap/features/commit/">false</sapcomhnd:enableCommit>
+    <sapblock:enableBlocking xmlns:sapblock="http://www.sap.com/NW05/soap/features/blocking/">true</sapblock:enableBlocking>
+    <saptrhnw05:required xmlns:saptrhnw05="http://www.sap.com/NW05/soap/features/transaction/">no</saptrhnw05:required>
+    <saprmnw05:enableWSRM xmlns:saprmnw05="http://www.sap.com/NW05/soap/features/wsrm/">false</saprmnw05:enableWSRM>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="OP_IF_OP_ZMM007_SAYIM_KAYDET">
+    <sapcomhnd:enableCommit xmlns:sapcomhnd="http://www.sap.com/NW05/soap/features/commit/">false</sapcomhnd:enableCommit>
+    <sapblock:enableBlocking xmlns:sapblock="http://www.sap.com/NW05/soap/features/blocking/">true</sapblock:enableBlocking>
+    <saptrhnw05:required xmlns:saptrhnw05="http://www.sap.com/NW05/soap/features/transaction/">no</saptrhnw05:required>
+    <saprmnw05:enableWSRM xmlns:saprmnw05="http://www.sap.com/NW05/soap/features/wsrm/">false</saprmnw05:enableWSRM>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="OP_IF_OP_ZMM005_UYSTOKNAKLI_09">
+    <sapcomhnd:enableCommit xmlns:sapcomhnd="http://www.sap.com/NW05/soap/features/commit/">false</sapcomhnd:enableCommit>
+    <sapblock:enableBlocking xmlns:sapblock="http://www.sap.com/NW05/soap/features/blocking/">true</sapblock:enableBlocking>
+    <saptrhnw05:required xmlns:saptrhnw05="http://www.sap.com/NW05/soap/features/transaction/">no</saptrhnw05:required>
+    <saprmnw05:enableWSRM xmlns:saprmnw05="http://www.sap.com/NW05/soap/features/wsrm/">false</saprmnw05:enableWSRM>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="OP_IF_OP_ZMM005_UYSTOKNAKLI_11">
+    <sapcomhnd:enableCommit xmlns:sapcomhnd="http://www.sap.com/NW05/soap/features/commit/">false</sapcomhnd:enableCommit>
+    <sapblock:enableBlocking xmlns:sapblock="http://www.sap.com/NW05/soap/features/blocking/">true</sapblock:enableBlocking>
+    <saptrhnw05:required xmlns:saptrhnw05="http://www.sap.com/NW05/soap/features/transaction/">no</saptrhnw05:required>
+    <saprmnw05:enableWSRM xmlns:saprmnw05="http://www.sap.com/NW05/soap/features/wsrm/">false</saprmnw05:enableWSRM>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="OP_IF_OP_ZMM007_AFNAM">
+    <sapcomhnd:enableCommit xmlns:sapcomhnd="http://www.sap.com/NW05/soap/features/commit/">false</sapcomhnd:enableCommit>
+    <sapblock:enableBlocking xmlns:sapblock="http://www.sap.com/NW05/soap/features/blocking/">true</sapblock:enableBlocking>
+    <saptrhnw05:required xmlns:saptrhnw05="http://www.sap.com/NW05/soap/features/transaction/">no</saptrhnw05:required>
+    <saprmnw05:enableWSRM xmlns:saprmnw05="http://www.sap.com/NW05/soap/features/wsrm/">false</saprmnw05:enableWSRM>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="OP_IF_OP_ZMM007_BARKOD_LIST_REZVSUZ">
+    <sapcomhnd:enableCommit xmlns:sapcomhnd="http://www.sap.com/NW05/soap/features/commit/">false</sapcomhnd:enableCommit>
+    <sapblock:enableBlocking xmlns:sapblock="http://www.sap.com/NW05/soap/features/blocking/">true</sapblock:enableBlocking>
+    <saptrhnw05:required xmlns:saptrhnw05="http://www.sap.com/NW05/soap/features/transaction/">no</saptrhnw05:required>
+    <saprmnw05:enableWSRM xmlns:saprmnw05="http://www.sap.com/NW05/soap/features/wsrm/">false</saprmnw05:enableWSRM>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="OP_IF_OP_ZMM007_SAYIM">
+    <sapcomhnd:enableCommit xmlns:sapcomhnd="http://www.sap.com/NW05/soap/features/commit/">false</sapcomhnd:enableCommit>
+    <sapblock:enableBlocking xmlns:sapblock="http://www.sap.com/NW05/soap/features/blocking/">true</sapblock:enableBlocking>
+    <saptrhnw05:required xmlns:saptrhnw05="http://www.sap.com/NW05/soap/features/transaction/">no</saptrhnw05:required>
+    <saprmnw05:enableWSRM xmlns:saprmnw05="http://www.sap.com/NW05/soap/features/wsrm/">false</saprmnw05:enableWSRM>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="OP_IF_OP_ZMM007_DEPO_HAREKETI">
+    <sapcomhnd:enableCommit xmlns:sapcomhnd="http://www.sap.com/NW05/soap/features/commit/">false</sapcomhnd:enableCommit>
+    <sapblock:enableBlocking xmlns:sapblock="http://www.sap.com/NW05/soap/features/blocking/">true</sapblock:enableBlocking>
+    <saptrhnw05:required xmlns:saptrhnw05="http://www.sap.com/NW05/soap/features/transaction/">no</saptrhnw05:required>
+    <saprmnw05:enableWSRM xmlns:saprmnw05="http://www.sap.com/NW05/soap/features/wsrm/">false</saprmnw05:enableWSRM>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="OP_IF_OP_ZMM007_DEPO_YERI">
+    <sapcomhnd:enableCommit xmlns:sapcomhnd="http://www.sap.com/NW05/soap/features/commit/">false</sapcomhnd:enableCommit>
+    <sapblock:enableBlocking xmlns:sapblock="http://www.sap.com/NW05/soap/features/blocking/">true</sapblock:enableBlocking>
+    <saptrhnw05:required xmlns:saptrhnw05="http://www.sap.com/NW05/soap/features/transaction/">no</saptrhnw05:required>
+    <saprmnw05:enableWSRM xmlns:saprmnw05="http://www.sap.com/NW05/soap/features/wsrm/">false</saprmnw05:enableWSRM>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="OP_IF_OP_ZMM007_GET_WERKS">
+    <sapcomhnd:enableCommit xmlns:sapcomhnd="http://www.sap.com/NW05/soap/features/commit/">false</sapcomhnd:enableCommit>
+    <sapblock:enableBlocking xmlns:sapblock="http://www.sap.com/NW05/soap/features/blocking/">true</sapblock:enableBlocking>
+    <saptrhnw05:required xmlns:saptrhnw05="http://www.sap.com/NW05/soap/features/transaction/">no</saptrhnw05:required>
+    <saprmnw05:enableWSRM xmlns:saprmnw05="http://www.sap.com/NW05/soap/features/wsrm/">false</saprmnw05:enableWSRM>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="OP_IF_OP_ZMM007_REZERVASYONSUZ_04">
+    <sapcomhnd:enableCommit xmlns:sapcomhnd="http://www.sap.com/NW05/soap/features/commit/">false</sapcomhnd:enableCommit>
+    <sapblock:enableBlocking xmlns:sapblock="http://www.sap.com/NW05/soap/features/blocking/">true</sapblock:enableBlocking>
+    <saptrhnw05:required xmlns:saptrhnw05="http://www.sap.com/NW05/soap/features/transaction/">no</saptrhnw05:required>
+    <saprmnw05:enableWSRM xmlns:saprmnw05="http://www.sap.com/NW05/soap/features/wsrm/">false</saprmnw05:enableWSRM>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="OP_IF_OP_ZMM007_ISLEM_ALAN_ISIMLERI">
+    <sapcomhnd:enableCommit xmlns:sapcomhnd="http://www.sap.com/NW05/soap/features/commit/">false</sapcomhnd:enableCommit>
+    <sapblock:enableBlocking xmlns:sapblock="http://www.sap.com/NW05/soap/features/blocking/">true</sapblock:enableBlocking>
+    <saptrhnw05:required xmlns:saptrhnw05="http://www.sap.com/NW05/soap/features/transaction/">no</saptrhnw05:required>
+    <saprmnw05:enableWSRM xmlns:saprmnw05="http://www.sap.com/NW05/soap/features/wsrm/">false</saprmnw05:enableWSRM>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="OP_IF_OP_ZMM007_ISLEM_TURU">
+    <sapcomhnd:enableCommit xmlns:sapcomhnd="http://www.sap.com/NW05/soap/features/commit/">false</sapcomhnd:enableCommit>
+    <sapblock:enableBlocking xmlns:sapblock="http://www.sap.com/NW05/soap/features/blocking/">true</sapblock:enableBlocking>
+    <saptrhnw05:required xmlns:saptrhnw05="http://www.sap.com/NW05/soap/features/transaction/">no</saptrhnw05:required>
+    <saprmnw05:enableWSRM xmlns:saprmnw05="http://www.sap.com/NW05/soap/features/wsrm/">false</saprmnw05:enableWSRM>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="OP_IF_OP_ZMM007_MASRAF_YERI">
+    <sapcomhnd:enableCommit xmlns:sapcomhnd="http://www.sap.com/NW05/soap/features/commit/">false</sapcomhnd:enableCommit>
+    <sapblock:enableBlocking xmlns:sapblock="http://www.sap.com/NW05/soap/features/blocking/">true</sapblock:enableBlocking>
+    <saptrhnw05:required xmlns:saptrhnw05="http://www.sap.com/NW05/soap/features/transaction/">no</saptrhnw05:required>
+    <saprmnw05:enableWSRM xmlns:saprmnw05="http://www.sap.com/NW05/soap/features/wsrm/">false</saprmnw05:enableWSRM>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="OP_IF_OP_ZMM007_REZERVASYONLU_01">
+    <sapcomhnd:enableCommit xmlns:sapcomhnd="http://www.sap.com/NW05/soap/features/commit/">false</sapcomhnd:enableCommit>
+    <sapblock:enableBlocking xmlns:sapblock="http://www.sap.com/NW05/soap/features/blocking/">true</sapblock:enableBlocking>
+    <saptrhnw05:required xmlns:saptrhnw05="http://www.sap.com/NW05/soap/features/transaction/">no</saptrhnw05:required>
+    <saprmnw05:enableWSRM xmlns:saprmnw05="http://www.sap.com/NW05/soap/features/wsrm/">false</saprmnw05:enableWSRM>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="OP_IF_OP_ZMM007_REZERVASYONSUZ_03">
+    <sapcomhnd:enableCommit xmlns:sapcomhnd="http://www.sap.com/NW05/soap/features/commit/">false</sapcomhnd:enableCommit>
+    <sapblock:enableBlocking xmlns:sapblock="http://www.sap.com/NW05/soap/features/blocking/">true</sapblock:enableBlocking>
+    <saptrhnw05:required xmlns:saptrhnw05="http://www.sap.com/NW05/soap/features/transaction/">no</saptrhnw05:required>
+    <saprmnw05:enableWSRM xmlns:saprmnw05="http://www.sap.com/NW05/soap/features/wsrm/">false</saprmnw05:enableWSRM>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="OP_IF_OP_ZMM007_REZERVASYONLU_02">
+    <sapcomhnd:enableCommit xmlns:sapcomhnd="http://www.sap.com/NW05/soap/features/commit/">false</sapcomhnd:enableCommit>
+    <sapblock:enableBlocking xmlns:sapblock="http://www.sap.com/NW05/soap/features/blocking/">true</sapblock:enableBlocking>
+    <saptrhnw05:required xmlns:saptrhnw05="http://www.sap.com/NW05/soap/features/transaction/">no</saptrhnw05:required>
+    <saprmnw05:enableWSRM xmlns:saprmnw05="http://www.sap.com/NW05/soap/features/wsrm/">false</saprmnw05:enableWSRM>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="OP_IF_OP_ZMM007_REZERVASYONLU_03">
+    <sapcomhnd:enableCommit xmlns:sapcomhnd="http://www.sap.com/NW05/soap/features/commit/">false</sapcomhnd:enableCommit>
+    <sapblock:enableBlocking xmlns:sapblock="http://www.sap.com/NW05/soap/features/blocking/">true</sapblock:enableBlocking>
+    <saptrhnw05:required xmlns:saptrhnw05="http://www.sap.com/NW05/soap/features/transaction/">no</saptrhnw05:required>
+    <saprmnw05:enableWSRM xmlns:saprmnw05="http://www.sap.com/NW05/soap/features/wsrm/">false</saprmnw05:enableWSRM>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="OP_IF_OP_ZMM007_REZERVASYONLU_04">
+    <sapcomhnd:enableCommit xmlns:sapcomhnd="http://www.sap.com/NW05/soap/features/commit/">false</sapcomhnd:enableCommit>
+    <sapblock:enableBlocking xmlns:sapblock="http://www.sap.com/NW05/soap/features/blocking/">true</sapblock:enableBlocking>
+    <saptrhnw05:required xmlns:saptrhnw05="http://www.sap.com/NW05/soap/features/transaction/">no</saptrhnw05:required>
+    <saprmnw05:enableWSRM xmlns:saprmnw05="http://www.sap.com/NW05/soap/features/wsrm/">false</saprmnw05:enableWSRM>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="OP_IF_OP_ZMM007_REZERVASYONSUZ_02">
+    <sapcomhnd:enableCommit xmlns:sapcomhnd="http://www.sap.com/NW05/soap/features/commit/">false</sapcomhnd:enableCommit>
+    <sapblock:enableBlocking xmlns:sapblock="http://www.sap.com/NW05/soap/features/blocking/">true</sapblock:enableBlocking>
+    <saptrhnw05:required xmlns:saptrhnw05="http://www.sap.com/NW05/soap/features/transaction/">no</saptrhnw05:required>
+    <saprmnw05:enableWSRM xmlns:saprmnw05="http://www.sap.com/NW05/soap/features/wsrm/">false</saprmnw05:enableWSRM>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="OP_IF_OP_ZMM007_REZERVASYONSUZ_00">
+    <sapcomhnd:enableCommit xmlns:sapcomhnd="http://www.sap.com/NW05/soap/features/commit/">false</sapcomhnd:enableCommit>
+    <sapblock:enableBlocking xmlns:sapblock="http://www.sap.com/NW05/soap/features/blocking/">true</sapblock:enableBlocking>
+    <saptrhnw05:required xmlns:saptrhnw05="http://www.sap.com/NW05/soap/features/transaction/">no</saptrhnw05:required>
+    <saprmnw05:enableWSRM xmlns:saprmnw05="http://www.sap.com/NW05/soap/features/wsrm/">false</saprmnw05:enableWSRM>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="OP_IF_OP_ZMM007_REZERVASYONSUZ_01">
+    <sapcomhnd:enableCommit xmlns:sapcomhnd="http://www.sap.com/NW05/soap/features/commit/">false</sapcomhnd:enableCommit>
+    <sapblock:enableBlocking xmlns:sapblock="http://www.sap.com/NW05/soap/features/blocking/">true</sapblock:enableBlocking>
+    <saptrhnw05:required xmlns:saptrhnw05="http://www.sap.com/NW05/soap/features/transaction/">no</saptrhnw05:required>
+    <saprmnw05:enableWSRM xmlns:saprmnw05="http://www.sap.com/NW05/soap/features/wsrm/">false</saprmnw05:enableWSRM>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="OP_IF_OP_ZMM007_TOP_IST_PER_KONT">
+    <sapcomhnd:enableCommit xmlns:sapcomhnd="http://www.sap.com/NW05/soap/features/commit/">false</sapcomhnd:enableCommit>
+    <sapblock:enableBlocking xmlns:sapblock="http://www.sap.com/NW05/soap/features/blocking/">true</sapblock:enableBlocking>
+    <saptrhnw05:required xmlns:saptrhnw05="http://www.sap.com/NW05/soap/features/transaction/">no</saptrhnw05:required>
+    <saprmnw05:enableWSRM xmlns:saprmnw05="http://www.sap.com/NW05/soap/features/wsrm/">false</saprmnw05:enableWSRM>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="OP_IF_OP_ZMM007_TOP_IST_PER_KONT_SAVE">
+    <sapcomhnd:enableCommit xmlns:sapcomhnd="http://www.sap.com/NW05/soap/features/commit/">false</sapcomhnd:enableCommit>
+    <sapblock:enableBlocking xmlns:sapblock="http://www.sap.com/NW05/soap/features/blocking/">true</sapblock:enableBlocking>
+    <saptrhnw05:required xmlns:saptrhnw05="http://www.sap.com/NW05/soap/features/transaction/">no</saptrhnw05:required>
+    <saprmnw05:enableWSRM xmlns:saprmnw05="http://www.sap.com/NW05/soap/features/wsrm/">false</saprmnw05:enableWSRM>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="OP_IF_OP_ZMM007_URETIM_YERI">
+    <sapcomhnd:enableCommit xmlns:sapcomhnd="http://www.sap.com/NW05/soap/features/commit/">false</sapcomhnd:enableCommit>
+    <sapblock:enableBlocking xmlns:sapblock="http://www.sap.com/NW05/soap/features/blocking/">true</sapblock:enableBlocking>
+    <saptrhnw05:required xmlns:saptrhnw05="http://www.sap.com/NW05/soap/features/transaction/">no</saptrhnw05:required>
+    <saprmnw05:enableWSRM xmlns:saprmnw05="http://www.sap.com/NW05/soap/features/wsrm/">false</saprmnw05:enableWSRM>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="OP_IF_OP_ZMM007_ZIMMET_LIST_PERS">
+    <sapcomhnd:enableCommit xmlns:sapcomhnd="http://www.sap.com/NW05/soap/features/commit/">false</sapcomhnd:enableCommit>
+    <sapblock:enableBlocking xmlns:sapblock="http://www.sap.com/NW05/soap/features/blocking/">true</sapblock:enableBlocking>
+    <saptrhnw05:required xmlns:saptrhnw05="http://www.sap.com/NW05/soap/features/transaction/">no</saptrhnw05:required>
+    <saprmnw05:enableWSRM xmlns:saprmnw05="http://www.sap.com/NW05/soap/features/wsrm/">false</saprmnw05:enableWSRM>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="OP_IF_OP_ZMM007_ZIMMET_PERMALYARAT">
+    <sapcomhnd:enableCommit xmlns:sapcomhnd="http://www.sap.com/NW05/soap/features/commit/">false</sapcomhnd:enableCommit>
+    <sapblock:enableBlocking xmlns:sapblock="http://www.sap.com/NW05/soap/features/blocking/">true</sapblock:enableBlocking>
+    <saptrhnw05:required xmlns:saptrhnw05="http://www.sap.com/NW05/soap/features/transaction/">no</saptrhnw05:required>
+    <saprmnw05:enableWSRM xmlns:saprmnw05="http://www.sap.com/NW05/soap/features/wsrm/">false</saprmnw05:enableWSRM>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="OP_IF_OP_ZMM007_ZIMMET_PERMALZLIST">
+    <sapcomhnd:enableCommit xmlns:sapcomhnd="http://www.sap.com/NW05/soap/features/commit/">false</sapcomhnd:enableCommit>
+    <sapblock:enableBlocking xmlns:sapblock="http://www.sap.com/NW05/soap/features/blocking/">true</sapblock:enableBlocking>
+    <saptrhnw05:required xmlns:saptrhnw05="http://www.sap.com/NW05/soap/features/transaction/">no</saptrhnw05:required>
+    <saprmnw05:enableWSRM xmlns:saprmnw05="http://www.sap.com/NW05/soap/features/wsrm/">false</saprmnw05:enableWSRM>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="OP_IF_OP_ZSD_F_BAR_KONTROL">
+    <sapcomhnd:enableCommit xmlns:sapcomhnd="http://www.sap.com/NW05/soap/features/commit/">false</sapcomhnd:enableCommit>
+    <sapblock:enableBlocking xmlns:sapblock="http://www.sap.com/NW05/soap/features/blocking/">true</sapblock:enableBlocking>
+    <saptrhnw05:required xmlns:saptrhnw05="http://www.sap.com/NW05/soap/features/transaction/">no</saptrhnw05:required>
+    <saprmnw05:enableWSRM xmlns:saprmnw05="http://www.sap.com/NW05/soap/features/wsrm/">false</saprmnw05:enableWSRM>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="OP_IF_OP_ZSD_F_TERMINAL_YUKLEME_01">
+    <sapcomhnd:enableCommit xmlns:sapcomhnd="http://www.sap.com/NW05/soap/features/commit/">false</sapcomhnd:enableCommit>
+    <sapblock:enableBlocking xmlns:sapblock="http://www.sap.com/NW05/soap/features/blocking/">true</sapblock:enableBlocking>
+    <saptrhnw05:required xmlns:saptrhnw05="http://www.sap.com/NW05/soap/features/transaction/">no</saptrhnw05:required>
+    <saprmnw05:enableWSRM xmlns:saprmnw05="http://www.sap.com/NW05/soap/features/wsrm/">false</saprmnw05:enableWSRM>
+  </wsp:Policy>
+  <wsp:Policy wsu:Id="OP_IF_OP_ZSD_F_TERMINAL_YUKLEME_02">
+    <sapcomhnd:enableCommit xmlns:sapcomhnd="http://www.sap.com/NW05/soap/features/commit/">false</sapcomhnd:enableCommit>
+    <sapblock:enableBlocking xmlns:sapblock="http://www.sap.com/NW05/soap/features/blocking/">true</sapblock:enableBlocking>
+    <saptrhnw05:required xmlns:saptrhnw05="http://www.sap.com/NW05/soap/features/transaction/">no</saptrhnw05:required>
+    <saprmnw05:enableWSRM xmlns:saprmnw05="http://www.sap.com/NW05/soap/features/wsrm/">false</saprmnw05:enableWSRM>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema attributeFormDefault="qualified" targetNamespace="urn:sap-com:document:sap:rfc:functions">
+      <xsd:simpleType name="char1">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="1" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="char10">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="10" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="char100">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="100" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="char11">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="11" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="char12">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="12" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="char13">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="13" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="char14">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="14" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="char15">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="15" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="char16">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="16" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="char18">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="18" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="char2">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="2" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="char20">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="20" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="char200">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="200" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="char220">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="220" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="char25">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="25" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="char3">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="3" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="char30">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="30" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="char32">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="32" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="char4">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="4" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="char40">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="40" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="char5">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="5" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="char50">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="50" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="char6">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="6" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="char8">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="8" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="clnt3">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="3" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="date10">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="10" />
+          <xsd:pattern value="\d\d\d\d-\d\d-\d\d" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="numeric10">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="10" />
+          <xsd:pattern value="\d*" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="numeric2">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="2" />
+          <xsd:pattern value="\d*" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="numeric3">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="3" />
+          <xsd:pattern value="\d*" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="numeric4">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="4" />
+          <xsd:pattern value="\d*" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="numeric5">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="5" />
+          <xsd:pattern value="\d*" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="numeric6">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="6" />
+          <xsd:pattern value="\d*" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="numeric8">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="8" />
+          <xsd:pattern value="\d*" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="quantum13.3">
+        <xsd:restriction base="xsd:decimal">
+          <xsd:totalDigits value="13" />
+          <xsd:fractionDigits value="3" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="quantum15.0">
+        <xsd:restriction base="xsd:decimal">
+          <xsd:totalDigits value="15" />
+          <xsd:fractionDigits value="0" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="quantum15.3">
+        <xsd:restriction base="xsd:decimal">
+          <xsd:totalDigits value="15" />
+          <xsd:fractionDigits value="3" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="time">
+        <xsd:restriction base="xsd:time">
+          <xsd:pattern value="[0-9]{2}:[0-9]{2}:[0-9]{2}" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:simpleType name="unit3">
+        <xsd:restriction base="xsd:string">
+          <xsd:maxLength value="3" />
+        </xsd:restriction>
+      </xsd:simpleType>
+      <xsd:complexType name="ZMM_S_WSMESSAGES">
+        <xsd:sequence>
+          <xsd:element name="TYPE" type="tns:char1" />
+          <xsd:element name="MESSAGE" type="tns:char200" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="BAPIRET2">
+        <xsd:sequence>
+          <xsd:element name="TYPE" type="tns:char1" />
+          <xsd:element name="ID" type="tns:char20" />
+          <xsd:element name="NUMBER" type="tns:numeric3" />
+          <xsd:element name="MESSAGE" type="tns:char220" />
+          <xsd:element name="LOG_NO" type="tns:char20" />
+          <xsd:element name="LOG_MSG_NO" type="tns:numeric6" />
+          <xsd:element name="MESSAGE_V1" type="tns:char50" />
+          <xsd:element name="MESSAGE_V2" type="tns:char50" />
+          <xsd:element name="MESSAGE_V3" type="tns:char50" />
+          <xsd:element name="MESSAGE_V4" type="tns:char50" />
+          <xsd:element name="PARAMETER" type="tns:char32" />
+          <xsd:element name="ROW" type="xsd:int" />
+          <xsd:element name="FIELD" type="tns:char30" />
+          <xsd:element name="SYSTEM" type="tns:char10" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ZMM_S_MALZEMELOKASYON">
+        <xsd:sequence>
+          <xsd:element name="DEPO" type="tns:char4" />
+          <xsd:element name="DEPOTANIM" type="tns:char16" />
+          <xsd:element name="DEPOADR" type="tns:char10" />
+          <xsd:element name="ADET" type="xsd:int" />
+          <xsd:element name="MIKTAR" type="tns:quantum13.3" />
+          <xsd:element name="MLZTANIM" type="tns:char40" />
+          <xsd:element name="MLZNO" type="tns:char18" />
+          <xsd:element name="UY" type="tns:char4" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ZMM_WS_RULOGIRIS">
+        <xsd:sequence>
+          <xsd:element name="TANIM" type="tns:char40" />
+          <xsd:element name="KALANKILO" type="tns:char15" />
+          <xsd:element name="KALANADET" type="tns:char15" />
+          <xsd:element name="TESLIMATMIKTAR" type="tns:char15" />
+          <xsd:element name="RULOADET" type="tns:char6" />
+          <xsd:element name="TESLIMATNO" type="tns:char10" />
+          <xsd:element name="TESKALEMNO" type="tns:char6" />
+          <xsd:element name="SASNO" type="tns:char10" />
+          <xsd:element name="SASKALEMNO" type="tns:char6" />
+          <xsd:element name="MALZEMENO" type="tns:char18" />
+          <xsd:element name="HARICIKALEM" type="tns:char6" />
+          <xsd:element name="SILMEGOSTERGESI" type="tns:char1" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ZMMS_WS_RULOGIRIS">
+        <xsd:sequence>
+          <xsd:element name="ZZFISNO" type="tns:char11" />
+          <xsd:element name="TESLIMATNO" type="tns:char10" />
+          <xsd:element name="TESKALEMNO" type="tns:char6" />
+          <xsd:element name="SASNO" type="tns:char10" />
+          <xsd:element name="SASKALEMNO" type="tns:char5" />
+          <xsd:element name="IRSNO" type="tns:char10" />
+          <xsd:element name="BARKODNO" type="tns:char10" />
+          <xsd:element name="HEATNO" type="tns:char30" />
+          <xsd:element name="KILO" type="tns:char16" />
+          <xsd:element name="DEPO" type="tns:char4" />
+          <xsd:element name="DEPOADRS" type="tns:char10" />
+          <xsd:element name="PLAKA" type="tns:char40" />
+          <xsd:element name="MGTRH" type="tns:char8" />
+          <xsd:element name="BULTENNO" type="tns:char15" />
+          <xsd:element name="IRSALIYENO" type="tns:char10" />
+          <xsd:element name="ILKKANTAR" type="tns:char15" />
+          <xsd:element name="SONKANTAR" type="tns:char15" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ZRFC_BAPIRET2_TAB">
+        <xsd:sequence>
+          <xsd:element name="TYPE" type="tns:char1" />
+          <xsd:element name="ID" type="tns:char20" />
+          <xsd:element name="NUMBER" type="tns:numeric3" />
+          <xsd:element name="MESSAGE" type="tns:char220" />
+          <xsd:element name="LOG_NO" type="tns:char20" />
+          <xsd:element name="LOG_MSG_NO" type="tns:numeric6" />
+          <xsd:element name="MESSAGE_V1" type="tns:char50" />
+          <xsd:element name="MESSAGE_V2" type="tns:char50" />
+          <xsd:element name="MESSAGE_V3" type="tns:char50" />
+          <xsd:element name="MESSAGE_V4" type="tns:char50" />
+          <xsd:element name="PARAMETER" type="tns:char32" />
+          <xsd:element name="ROW" type="xsd:int" />
+          <xsd:element name="FIELD" type="tns:char30" />
+          <xsd:element name="SYSTEMSAP" type="tns:char10" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ZPP_S_SAYIM">
+        <xsd:sequence>
+          <xsd:element name="BARKOD" type="tns:char10" />
+          <xsd:element name="DEPO" type="tns:char4" />
+          <xsd:element name="DEPO_USER" type="tns:char4" />
+          <xsd:element name="ADRES" type="tns:char10" />
+          <xsd:element name="ADRES_USER" type="tns:char10" />
+          <xsd:element name="MLZ_KODU" type="tns:char18" />
+          <xsd:element name="MLZ_ADI" type="tns:char40" />
+          <xsd:element name="URETIMYERI" type="tns:char4" />
+          <xsd:element name="MLZ_TIP" type="tns:char1" />
+          <xsd:element name="PKTICIADT" type="tns:char3" />
+          <xsd:element name="TUKETILDI" type="tns:char1" />
+          <xsd:element name="SATILDI" type="tns:char1" />
+          <xsd:element name="SASNO" type="tns:char10" />
+          <xsd:element name="SIPNO" type="tns:char10" />
+          <xsd:element name="KALEM" type="tns:char10" />
+          <xsd:element name="PARTI" type="tns:char10" />
+          <xsd:element name="KILO" type="tns:quantum13.3" />
+          <xsd:element name="ISTIFNO" type="tns:char8" />
+          <xsd:element name="DOSYA" type="tns:char20" />
+          <xsd:element name="OKUTAN" type="tns:char12" />
+          <xsd:element name="OKUTMATRH" type="tns:char8" />
+          <xsd:element name="OKUTMASAAT" type="tns:char6" />
+          <xsd:element name="IPNBR" type="tns:char20" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ZMM_T_TERMINAL">
+        <xsd:sequence>
+          <xsd:element name="MANDT" type="tns:clnt3" />
+          <xsd:element name="TRM_NAME" type="tns:char20" />
+          <xsd:element name="TRM_ACTIVE" type="tns:char1" />
+          <xsd:element name="TRM_LOCIP" type="xsd:string" />
+          <xsd:element name="TRM_OSVER" type="xsd:string" />
+          <xsd:element name="TRM_NETVER" type="xsd:string" />
+          <xsd:element name="TRM_APPNAME" type="xsd:string" />
+          <xsd:element name="TRM_APPVER" type="xsd:string" />
+          <xsd:element name="LOGIN_USER" type="xsd:string" />
+          <xsd:element name="LOGIN_DATE" type="tns:char8" />
+          <xsd:element name="LOGIN_TIME" type="tns:char6" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ZMM_T_TERMAPP">
+        <xsd:sequence>
+          <xsd:element name="MANDT" type="tns:clnt3" />
+          <xsd:element name="APP_ID" type="tns:char20" />
+          <xsd:element name="APP_VERSION" type="tns:char10" />
+          <xsd:element name="APP_ACTIVE" type="tns:char1" />
+          <xsd:element name="APP_DATE" type="tns:date10" />
+          <xsd:element name="APP_TIME" type="tns:time" />
+          <xsd:element name="APP_BIN" type="xsd:base64Binary" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ZMM_S_FISITEMS_EMIR_T">
+        <xsd:sequence>
+          <xsd:element name="MLZTANIM" type="tns:char40" />
+          <xsd:element name="EMIRMIKTARI" type="tns:quantum13.3" />
+          <xsd:element name="MIKTAR" type="tns:quantum13.3" />
+          <xsd:element name="MALZEMENO" type="tns:char18" />
+          <xsd:element name="TEORIK1" type="tns:quantum15.3" />
+          <xsd:element name="TEORIK2" type="tns:quantum15.3" />
+          <xsd:element name="SASNO" type="tns:char10" />
+          <xsd:element name="SASKALEM" type="tns:numeric5" />
+          <xsd:element name="SATISBEL" type="tns:char10" />
+          <xsd:element name="SATISKALEM" type="tns:numeric6" />
+          <xsd:element name="IRSALIYENO" type="tns:char10" />
+          <xsd:element name="FISNO" type="tns:char11" />
+          <xsd:element name="KAYITZAMANI" type="tns:char20" />
+          <xsd:element name="BARKODNO" type="tns:char10" />
+          <xsd:element name="OB" type="tns:unit3" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ZMM_S_FISITEMS_EMIR">
+        <xsd:sequence>
+          <xsd:element name="FISNO" type="tns:char11" />
+          <xsd:element name="EBELN" type="tns:char10" />
+          <xsd:element name="EBELP" type="tns:numeric5" />
+          <xsd:element name="ZZEMIRMIKTAR" type="tns:quantum13.3" />
+          <xsd:element name="MENGE" type="tns:quantum13.3" />
+          <xsd:element name="TEORIK1" type="tns:quantum15.3" />
+          <xsd:element name="TEORIK2" type="tns:quantum15.3" />
+          <xsd:element name="ZZIRSALIYENO" type="tns:char10" />
+          <xsd:element name="BARKOD" type="tns:char10" />
+          <xsd:element name="MATNR" type="tns:char18" />
+          <xsd:element name="TANIM" type="tns:char40" />
+          <xsd:element name="ZZKAYITZAMANI" type="tns:char20" />
+          <xsd:element name="VBELN" type="tns:char10" />
+          <xsd:element name="POSNR" type="tns:numeric6" />
+          <xsd:element name="MEINS" type="tns:unit3" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ZMM_S_UY03">
+        <xsd:sequence>
+          <xsd:element name="BARKOD" type="tns:char10" />
+          <xsd:element name="MLZ_TANIM" type="tns:char40" />
+          <xsd:element name="DEPOADRES" type="tns:char10" />
+          <xsd:element name="MIKTAR" type="tns:quantum15.0" />
+          <xsd:element name="TEORIK1" type="tns:quantum15.0" />
+          <xsd:element name="GERCEK1" type="tns:quantum15.0" />
+          <xsd:element name="MALZEME" type="tns:char18" />
+          <xsd:element name="PARTI" type="tns:char10" />
+          <xsd:element name="SEFER" type="tns:char11" />
+          <xsd:element name="DEPO" type="tns:char4" />
+          <xsd:element name="TEORIK2" type="tns:quantum15.0" />
+          <xsd:element name="GERCEK2" type="tns:quantum15.0" />
+          <xsd:element name="KANTARNET" type="tns:quantum15.0" />
+          <xsd:element name="TESLIMAT" type="tns:char10" />
+          <xsd:element name="TESLIMATKALEM" type="tns:numeric6" />
+          <xsd:element name="SASNO" type="tns:char10" />
+          <xsd:element name="SASKALEM" type="tns:numeric5" />
+          <xsd:element name="SATISBEL" type="tns:char10" />
+          <xsd:element name="SATISKALEM" type="tns:numeric6" />
+          <xsd:element name="IRSALIYE" type="tns:char10" />
+          <xsd:element name="KAYITZAMANI" type="tns:char14" />
+          <xsd:element name="FISNO" type="tns:char11" />
+          <xsd:element name="OB" type="tns:unit3" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ZMM_S_FASONMALGIRIS">
+        <xsd:sequence>
+          <xsd:element name="FISNO" type="tns:char11" />
+          <xsd:element name="BARKOD" type="tns:char10" />
+          <xsd:element name="EBELN" type="tns:char10" />
+          <xsd:element name="EBELP" type="tns:numeric5" />
+          <xsd:element name="MATNR" type="tns:char18" />
+          <xsd:element name="MAKTX" type="tns:char40" />
+          <xsd:element name="MENGE" type="tns:quantum15.0" />
+          <xsd:element name="TEORIK1" type="tns:quantum15.0" />
+          <xsd:element name="GERCEK1" type="tns:quantum15.0" />
+          <xsd:element name="TEORIK2" type="tns:quantum15.0" />
+          <xsd:element name="GERCEK2" type="tns:quantum15.0" />
+          <xsd:element name="EBELN2" type="tns:char10" />
+          <xsd:element name="EBELP2" type="tns:numeric5" />
+          <xsd:element name="ZZIRSALIYENO" type="tns:char10" />
+          <xsd:element name="MBLNR11" type="tns:char10" />
+          <xsd:element name="MJAHR11" type="tns:numeric4" />
+          <xsd:element name="MBLNR12" type="tns:char10" />
+          <xsd:element name="MJAHR12" type="tns:numeric4" />
+          <xsd:element name="MBLNR21" type="tns:char10" />
+          <xsd:element name="MJAHR21" type="tns:numeric4" />
+          <xsd:element name="VBELN2" type="tns:char10" />
+          <xsd:element name="POSNR2" type="tns:numeric6" />
+          <xsd:element name="MEINS" type="tns:unit3" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ZMM_S_TARTIMDET_ITEMS">
+        <xsd:sequence>
+          <xsd:element name="BARKOD" type="tns:char10" />
+          <xsd:element name="TANIM" type="tns:char40" />
+          <xsd:element name="MIKTAR" type="tns:quantum13.3" />
+          <xsd:element name="KG" type="tns:quantum15.3" />
+          <xsd:element name="STOK_NO" type="tns:char18" />
+          <xsd:element name="PARTI" type="tns:char10" />
+          <xsd:element name="SIP_NO" type="tns:char10" />
+          <xsd:element name="SIP_KLM" type="tns:numeric6" />
+          <xsd:element name="TES_NO" type="tns:char10" />
+          <xsd:element name="TES_KLM" type="tns:numeric5" />
+          <xsd:element name="YUK_EMR" type="tns:char11" />
+          <xsd:element name="YUK_KLM" type="tns:numeric10" />
+          <xsd:element name="OB" type="tns:unit3" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ZMM_S_LGORT">
+        <xsd:sequence>
+          <xsd:element name="LGORT" type="tns:char4" />
+          <xsd:element name="LGOBE" type="tns:char16" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ZMM_S_REZBAS">
+        <xsd:sequence>
+          <xsd:element name="BASLIK" type="tns:char25" />
+          <xsd:element name="DEGER" type="tns:char25" />
+          <xsd:element name="ACIKLAMA" type="tns:char25" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ZMM_S_REZLIST">
+        <xsd:sequence>
+          <xsd:element name="MALZEME_ADI" type="tns:char40" />
+          <xsd:element name="PARTI" type="tns:char10" />
+          <xsd:element name="ADRES" type="tns:char10" />
+          <xsd:element name="ISTEK_MKT" type="tns:quantum13.3" />
+          <xsd:element name="CEKME_MKT" type="tns:quantum13.3" />
+          <xsd:element name="KALAN_MKT" type="tns:quantum13.3" />
+          <xsd:element name="STOK_NO" type="tns:char18" />
+          <xsd:element name="STOK_MKT" type="tns:quantum13.3" />
+          <xsd:element name="DIGER" type="tns:char10" />
+          <xsd:element name="DIGER_MKT" type="tns:quantum13.3" />
+          <xsd:element name="DEPO_MKT" type="tns:quantum13.3" />
+          <xsd:element name="BIRIM" type="tns:unit3" />
+          <xsd:element name="REZV_NO" type="tns:numeric10" />
+          <xsd:element name="REZV_KLM" type="tns:numeric4" />
+          <xsd:element name="URTYER" type="tns:char4" />
+          <xsd:element name="DEPO" type="tns:char4" />
+          <xsd:element name="ZIMMET" type="tns:char3" />
+          <xsd:element name="PER_SAYISI" type="tns:quantum13.3" />
+          <xsd:element name="PER_MIKTAR" type="tns:quantum13.3" />
+          <xsd:element name="CHK" type="tns:char1" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ZMM_S_REZPERS">
+        <xsd:sequence>
+          <xsd:element name="ADSOYAD" type="tns:char40" />
+          <xsd:element name="PERSONEL" type="tns:numeric8" />
+          <xsd:element name="BOLUM" type="tns:char12" />
+          <xsd:element name="MIKTAR" type="tns:quantum13.3" />
+          <xsd:element name="MESAJ" type="tns:char100" />
+          <xsd:element name="DURUM" type="tns:char5" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ZMM_S_HRKTIP">
+        <xsd:sequence>
+          <xsd:element name="ISLEM" type="tns:char3" />
+          <xsd:element name="ISLEM_ADI" type="tns:char25" />
+          <xsd:element name="KISIMK" type="tns:char1" />
+          <xsd:element name="MASRAFK" type="tns:char1" />
+          <xsd:element name="SIPARISK" type="tns:char1" />
+          <xsd:element name="DEPOK" type="tns:char1" />
+          <xsd:element name="URTYERK" type="tns:char1" />
+          <xsd:element name="SATICIK" type="tns:char1" />
+          <xsd:element name="ISLEMT" type="tns:char1" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ZMM_S_RZVSIZ01">
+        <xsd:sequence>
+          <xsd:element name="ISLEM" type="tns:char3" />
+          <xsd:element name="KISIM" type="tns:char12" />
+          <xsd:element name="MASRAF" type="tns:char10" />
+          <xsd:element name="SIPARIS" type="tns:char12" />
+          <xsd:element name="DEPO" type="tns:char4" />
+          <xsd:element name="URTYER" type="tns:char4" />
+          <xsd:element name="SATICI" type="tns:char10" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ZMM_S_RZVLIST">
+        <xsd:sequence>
+          <xsd:element name="MALZEME_ADI" type="tns:char40" />
+          <xsd:element name="PARTI" type="tns:char10" />
+          <xsd:element name="ADRES" type="tns:char10" />
+          <xsd:element name="CEKME_MKT" type="tns:quantum13.3" />
+          <xsd:element name="KALAN_MKT" type="tns:quantum13.3" />
+          <xsd:element name="STOK_NO" type="tns:char18" />
+          <xsd:element name="STOK_MKT" type="tns:quantum13.3" />
+          <xsd:element name="DIGER" type="tns:char10" />
+          <xsd:element name="DIGER_MKT" type="tns:quantum13.3" />
+          <xsd:element name="DEPO_MKT" type="tns:quantum13.3" />
+          <xsd:element name="BIRIM" type="tns:unit3" />
+          <xsd:element name="URTYER" type="tns:char4" />
+          <xsd:element name="DEPO" type="tns:char4" />
+          <xsd:element name="ZIMMET" type="tns:char3" />
+          <xsd:element name="PER_SAYISI" type="tns:quantum13.3" />
+          <xsd:element name="PER_MIKTAR" type="tns:quantum13.3" />
+          <xsd:element name="CHK" type="tns:char1" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ZMM_S_TOPDEG">
+        <xsd:sequence>
+          <xsd:element name="DEG_ALAN" type="tns:char25" />
+          <xsd:element name="YENI_ALAN" type="tns:char25" />
+          <xsd:element name="ALAN_TIPI" type="tns:char1" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ZMM_S_TOPMLZM">
+        <xsd:sequence>
+          <xsd:element name="MALZEME_ADI" type="tns:char40" />
+          <xsd:element name="PARTI" type="tns:char10" />
+          <xsd:element name="STOK_NO" type="tns:char18" />
+          <xsd:element name="MIKTAR" type="tns:quantum13.3" />
+          <xsd:element name="BIRIM" type="tns:unit3" />
+          <xsd:element name="URTYER" type="tns:char4" />
+          <xsd:element name="DEPO" type="tns:char4" />
+          <xsd:element name="ZIMMET" type="tns:char3" />
+          <xsd:element name="BARKOD" type="tns:char40" />
+          <xsd:element name="IPNBR" type="tns:char20" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ZSD_S_BAR_LIST">
+        <xsd:sequence>
+          <xsd:element name="BARYUK" type="tns:char10" />
+          <xsd:element name="BARKON" type="tns:char10" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ZSD_S_YE_LIST">
+        <xsd:sequence>
+          <xsd:element name="ACIKLAMA" type="tns:char40" />
+          <xsd:element name="MIKTAR" type="tns:quantum13.3" />
+          <xsd:element name="TOTAL" type="tns:quantum13.3" />
+          <xsd:element name="KALAN" type="tns:quantum13.3" />
+          <xsd:element name="OBRM" type="tns:unit3" />
+          <xsd:element name="PAK_YUKLCEK" type="tns:quantum13.3" />
+          <xsd:element name="PAK_YUKLENEN" type="tns:quantum13.3" />
+          <xsd:element name="PAK_KALAN" type="tns:quantum13.3" />
+          <xsd:element name="ADT_YUKLCEK" type="tns:quantum13.3" />
+          <xsd:element name="ADT_YUKLENEN" type="tns:quantum13.3" />
+          <xsd:element name="ADT_KALAN" type="tns:quantum13.3" />
+          <xsd:element name="SIPARIS" type="tns:char10" />
+          <xsd:element name="KALEM" type="tns:numeric6" />
+          <xsd:element name="KONSI" type="tns:char30" />
+          <xsd:element name="RENK" type="tns:char20" />
+          <xsd:element name="GEMIADI" type="tns:char40" />
+          <xsd:element name="LIMAN" type="tns:char30" />
+          <xsd:element name="SEFER" type="tns:char11" />
+          <xsd:element name="MALZEME" type="tns:char18" />
+          <xsd:element name="LINNO" type="tns:char6" />
+          <xsd:element name="FISNO" type="tns:char11" />
+          <xsd:element name="BARKOD" type="tns:char10" />
+          <xsd:element name="UYERI" type="tns:char4" />
+          <xsd:element name="DEPO" type="tns:char4" />
+          <xsd:element name="LSTEL" type="tns:char2" />
+          <xsd:element name="PLAKA" type="tns:char40" />
+          <xsd:element name="MUSTERI" type="tns:char30" />
+          <xsd:element name="ZTERM" type="tns:char4" />
+          <xsd:element name="ZLSCH" type="tns:char1" />
+          <xsd:element name="INCO1" type="tns:char3" />
+          <xsd:element name="EKALAN1" type="tns:char10" />
+          <xsd:element name="EKALAN2" type="tns:char10" />
+          <xsd:element name="EKALAN3" type="tns:char20" />
+          <xsd:element name="EKALAN4" type="tns:char20" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ZSD_S_TARTIM_DET_TRM">
+        <xsd:sequence>
+          <xsd:element name="BARKOD" type="tns:char13" />
+          <xsd:element name="MIKTAR" type="tns:quantum15.3" />
+          <xsd:element name="OBRM" type="tns:unit3" />
+          <xsd:element name="KULLANICI" type="tns:char12" />
+          <xsd:element name="TARIH" type="tns:date10" />
+          <xsd:element name="SAAT" type="tns:time" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ZMM_TT_WSMESSAGES">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:ZMM_S_WSMESSAGES" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="BAPIRET2_T">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:BAPIRET2" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ZMM_TT_MALZEMELOKASYON">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:ZMM_S_MALZEMELOKASYON" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ZMM_TT_RULOGIRIS">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:ZMM_WS_RULOGIRIS" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="TABLE_OF_ZMMS_WS_RULOGIRIS">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:ZMMS_WS_RULOGIRIS" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ZRFC_TT_BAPIRET2">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:ZRFC_BAPIRET2_TAB" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="TABLE_OF_ZPP_S_SAYIM">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:ZPP_S_SAYIM" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ZMM_TT_FISITEMS_EMIR">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:ZMM_S_FISITEMS_EMIR_T" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ZMM_TT_UY03">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:ZMM_S_UY03" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ZMM_TT_FASONMALGIRIS">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:ZMM_S_FASONMALGIRIS" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ZMM_TT_TARTIMDET_ITEMS">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:ZMM_S_TARTIMDET_ITEMS" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ZMM_TT_LGORT">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:ZMM_S_LGORT" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ZMM_TT_REZBAS">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:ZMM_S_REZBAS" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ZMM_TT_REZLIST">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:ZMM_S_REZLIST" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ZMM_TT_REZPERS">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:ZMM_S_REZPERS" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ZMM_TT_HRKTIP">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:ZMM_S_HRKTIP" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ZMM_TT_RZVLIST">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:ZMM_S_RZVLIST" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="TABLE_OF_ZMM_S_TOPMLZM">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:ZMM_S_TOPMLZM" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ZSD_TT_BAR_LIST">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:ZSD_S_BAR_LIST" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="ZSD_TT_YE_LIST">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:ZSD_S_YE_LIST" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:complexType name="TABLE_OF_ZSD_S_TARTIM_DET_TRM">
+        <xsd:sequence>
+          <xsd:element minOccurs="0" maxOccurs="unbounded" name="item" type="tns:ZSD_S_TARTIM_DET_TRM" />
+        </xsd:sequence>
+      </xsd:complexType>
+      <xsd:element name="ZMM005_FISKAYITDURUMU">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="I_FISNO" type="tns:char11" />
+            <xsd:element name="I_LOKASYON" type="tns:char1" />
+            <xsd:element minOccurs="0" name="I_LSTEL" type="tns:char2" />
+            <xsd:element name="T_MESSAGES" type="tns:ZMM_TT_WSMESSAGES" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ZMM005_FISKAYITDURUMUResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="E_SUBRC" type="xsd:int" />
+            <xsd:element name="T_MESSAGES" type="tns:ZMM_TT_WSMESSAGES" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ZMM005_GOODSMVT_CANCEL">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="I_MATDOC" type="tns:char10" />
+            <xsd:element name="I_MATDYR" type="tns:numeric4" />
+            <xsd:element name="I_PSTNG_DATE" type="tns:date10" />
+            <xsd:element minOccurs="0" name="T_RETURN" type="tns:BAPIRET2_T" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ZMM005_GOODSMVT_CANCELResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="E_SUBRC" type="xsd:int" />
+            <xsd:element name="E_XMBLNR" type="tns:char10" />
+            <xsd:element name="T_MESSAGES" type="tns:ZMM_TT_WSMESSAGES" />
+            <xsd:element minOccurs="0" name="T_RETURN" type="tns:BAPIRET2_T" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ZMM005_MALZEMELOKASYON_01">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="I_BARKOD" type="tns:char10" />
+            <xsd:element minOccurs="0" name="I_MATNR" type="tns:char18" />
+            <xsd:element minOccurs="0" name="I_POSNR" type="tns:char6" />
+            <xsd:element name="I_UNAME" type="tns:char30" />
+            <xsd:element minOccurs="0" name="I_VBELN" type="tns:char10" />
+            <xsd:element minOccurs="0" name="T_MALZEMELOKASYON" type="tns:ZMM_TT_MALZEMELOKASYON" />
+            <xsd:element minOccurs="0" name="T_MESSAGES" type="tns:ZMM_TT_WSMESSAGES" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ZMM005_MALZEMELOKASYON_01Response">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="E_SUBRC" type="tns:char1" />
+            <xsd:element minOccurs="0" name="T_MALZEMELOKASYON" type="tns:ZMM_TT_MALZEMELOKASYON" />
+            <xsd:element minOccurs="0" name="T_MESSAGES" type="tns:ZMM_TT_WSMESSAGES" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ZMM005_MALZEMELOKASYON_02">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="I_BARKOD" type="tns:char10" />
+            <xsd:element name="I_LGORT" type="tns:char4" />
+            <xsd:element name="I_LGPBE" type="tns:char10" />
+            <xsd:element name="I_WERKS" type="tns:char4" />
+            <xsd:element minOccurs="0" name="T_MESSAGES" type="tns:ZMM_TT_WSMESSAGES" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ZMM005_MALZEMELOKASYON_02Response">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="E_SUBRC" type="tns:char1" />
+            <xsd:element minOccurs="0" name="T_MESSAGES" type="tns:ZMM_TT_WSMESSAGES" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ZMM005_MODE">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ZMM005_MODEResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="E_MESSAGE" type="tns:char100" />
+            <xsd:element name="E_MOD" type="tns:char1" />
+            <xsd:element name="E_SUBRC" type="tns:char1" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ZMM005_RULOGIRIS_01">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="I_FISNO" type="tns:char11" />
+            <xsd:element name="I_SEFERNO" type="tns:char11" />
+            <xsd:element minOccurs="0" name="T_MESSAGES" type="tns:ZMM_TT_WSMESSAGES" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ZMM005_RULOGIRIS_01Response">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="T_ITEMS" type="tns:ZMM_TT_RULOGIRIS" />
+            <xsd:element minOccurs="0" name="T_MESSAGES" type="tns:ZMM_TT_WSMESSAGES" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ZMM005_RULOGIRIS_02">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="I_MG_GOST" type="tns:char1" />
+            <xsd:element minOccurs="0" name="T_INPUT" type="tns:TABLE_OF_ZMMS_WS_RULOGIRIS" />
+            <xsd:element minOccurs="0" name="T_RETURN" type="tns:ZRFC_TT_BAPIRET2" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ZMM005_RULOGIRIS_02Response">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="E_DOC_NUMBER" type="tns:char10" />
+            <xsd:element name="E_DOC_YEAR" type="tns:char4" />
+            <xsd:element name="E_SUBRC" type="tns:char1" />
+            <xsd:element minOccurs="0" name="T_INPUT" type="tns:TABLE_OF_ZMMS_WS_RULOGIRIS" />
+            <xsd:element name="T_MESSAGES" type="tns:ZMM_TT_WSMESSAGES" />
+            <xsd:element minOccurs="0" name="T_RETURN" type="tns:ZRFC_TT_BAPIRET2" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ZMM005_SAYIM">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="I_ADRES" type="tns:char10" />
+            <xsd:element minOccurs="0" name="I_BARKOD" type="tns:char40" />
+            <xsd:element minOccurs="0" name="I_DEPO" type="tns:char4" />
+            <xsd:element minOccurs="0" name="I_IPNBR" type="tns:char20" />
+            <xsd:element minOccurs="0" name="I_MLZ_TIP" type="tns:char1" />
+            <xsd:element minOccurs="0" name="I_MOD" type="tns:char1" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ZMM005_SAYIMResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="E_EXPORT" type="tns:ZPP_S_SAYIM" />
+            <xsd:element name="E_MESSAGE" type="tns:char100" />
+            <xsd:element name="E_SUBRC" type="tns:char1" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ZMM005_SAYIM_RESET">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="I_IPNBR" type="tns:char20" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ZMM005_SAYIM_RESETResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="E_MESSAGE" type="tns:char100" />
+            <xsd:element name="E_SUBRC" type="tns:char1" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ZMM005_SAYIM_SAVE">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="I_IPNBR" type="tns:char20" />
+            <xsd:element minOccurs="0" name="I_MLZ_TIP" type="tns:char1" />
+            <xsd:element name="T_SAYIMTERMINAL" type="tns:TABLE_OF_ZPP_S_SAYIM" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ZMM005_SAYIM_SAVEResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="E_MESSAGE" type="tns:char100" />
+            <xsd:element name="E_SUBRC" type="tns:char1" />
+            <xsd:element name="T_SAYIMTERMINAL" type="tns:TABLE_OF_ZPP_S_SAYIM" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ZMM005_TERMINAL_BAKIM">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="P_REQDOWNLOAD" type="tns:char1" />
+            <xsd:element name="P_TERMINAL" type="tns:ZMM_T_TERMINAL" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ZMM005_TERMINAL_BAKIMResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="P_MESSAGE" type="xsd:string" />
+            <xsd:element name="P_TERMAPP" type="tns:ZMM_T_TERMAPP" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ZMM005_TERMINAL_GIRIS">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="I_PASSWORD" type="tns:char20" />
+            <xsd:element name="I_USERNAME" type="tns:char12" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ZMM005_TERMINAL_GIRISResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="E_RESULT" type="tns:char200" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ZMM005_UYSTOKNAKLI_01">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="IV_FISNO" type="tns:char11" />
+            <xsd:element name="T_FISITEMS_EMIR" type="tns:ZMM_TT_FISITEMS_EMIR" />
+            <xsd:element minOccurs="0" name="T_MESSAGES" type="tns:ZMM_TT_WSMESSAGES" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ZMM005_UYSTOKNAKLI_01Response">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="E_SUBRC" type="tns:char1" />
+            <xsd:element name="T_FISITEMS_EMIR" type="tns:ZMM_TT_FISITEMS_EMIR" />
+            <xsd:element minOccurs="0" name="T_MESSAGES" type="tns:ZMM_TT_WSMESSAGES" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ZMM005_UYSTOKNAKLI_03">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="I_FISITEMS" type="tns:ZMM_S_FISITEMS_EMIR" />
+            <xsd:element name="I_OPERATION" type="tns:char1" />
+            <xsd:element name="I_UNAME" type="tns:char30" />
+            <xsd:element name="T_MESSAGES" type="tns:ZMM_TT_WSMESSAGES" />
+            <xsd:element name="T_TABLE" type="tns:ZMM_TT_UY03" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ZMM005_UYSTOKNAKLI_03Response">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="E_SUBRC" type="tns:char1" />
+            <xsd:element name="T_MESSAGES" type="tns:ZMM_TT_WSMESSAGES" />
+            <xsd:element name="T_TABLE" type="tns:ZMM_TT_UY03" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ZMM005_UYSTOKNAKLI_04">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="T_FISITEMS_EMIR" type="tns:ZMM_TT_FISITEMS_EMIR" />
+            <xsd:element minOccurs="0" name="T_RETURN" type="tns:ZRFC_TT_BAPIRET2" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ZMM005_UYSTOKNAKLI_04Response">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="E_DOC_NUMBER" type="tns:char10" />
+            <xsd:element name="E_DOC_YEAR" type="tns:char4" />
+            <xsd:element name="E_SUBRC" type="tns:char1" />
+            <xsd:element name="T_FISITEMS_EMIR" type="tns:ZMM_TT_FISITEMS_EMIR" />
+            <xsd:element name="T_MESSAGES" type="tns:ZMM_TT_WSMESSAGES" />
+            <xsd:element minOccurs="0" name="T_RETURN" type="tns:ZRFC_TT_BAPIRET2" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ZMM005_UYSTOKNAKLI_05">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="IV_FISNO" type="tns:char11" />
+            <xsd:element name="IV_MODE" type="tns:char1" />
+            <xsd:element name="T_FISITEMS_EMIR" type="tns:ZMM_TT_UY03" />
+            <xsd:element minOccurs="0" name="T_MESSAGES" type="tns:ZMM_TT_WSMESSAGES" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ZMM005_UYSTOKNAKLI_05Response">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="E_SUBRC" type="tns:char1" />
+            <xsd:element name="T_FISITEMS_EMIR" type="tns:ZMM_TT_UY03" />
+            <xsd:element minOccurs="0" name="T_MESSAGES" type="tns:ZMM_TT_WSMESSAGES" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ZMM005_UYSTOKNAKLI_06">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="IS_OKUTULAN" type="tns:ZMM_S_UY03" />
+            <xsd:element name="I_BARKOD" type="tns:char10" />
+            <xsd:element name="I_FISNO" type="tns:char11" />
+            <xsd:element name="I_LGPBE" type="tns:char10" />
+            <xsd:element name="T_MESSAGES" type="tns:ZMM_TT_WSMESSAGES" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ZMM005_UYSTOKNAKLI_06Response">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="E_SUBRC" type="tns:char1" />
+            <xsd:element name="T_MESSAGES" type="tns:ZMM_TT_WSMESSAGES" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ZMM005_UYSTOKNAKLI_07">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="T_ITEMS" type="tns:ZMM_TT_FASONMALGIRIS" />
+            <xsd:element minOccurs="0" name="T_MESSAGES" type="tns:ZMM_TT_WSMESSAGES" />
+            <xsd:element minOccurs="0" name="T_RETURN" type="tns:ZRFC_TT_BAPIRET2" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ZMM005_UYSTOKNAKLI_07Response">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="E_PONUMBER" type="tns:char10" />
+            <xsd:element name="E_SUBRC" type="tns:char1" />
+            <xsd:element minOccurs="0" name="T_ITEMS" type="tns:ZMM_TT_FASONMALGIRIS" />
+            <xsd:element minOccurs="0" name="T_MESSAGES" type="tns:ZMM_TT_WSMESSAGES" />
+            <xsd:element minOccurs="0" name="T_RETURN" type="tns:ZRFC_TT_BAPIRET2" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ZMM005_UYSTOKNAKLI_08">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="IV_FISNO" type="tns:char11" />
+            <xsd:element name="T_FISITEMS_EMIR" type="tns:ZMM_TT_FISITEMS_EMIR" />
+            <xsd:element name="T_RETURN" type="tns:ZRFC_TT_BAPIRET2" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ZMM005_UYSTOKNAKLI_08Response">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="E_DOC_NUMBER" type="tns:char10" />
+            <xsd:element name="E_DOC_YEAR" type="tns:char4" />
+            <xsd:element name="E_SUBRC" type="tns:char1" />
+            <xsd:element name="T_FISITEMS_EMIR" type="tns:ZMM_TT_FISITEMS_EMIR" />
+            <xsd:element name="T_MESSAGES" type="tns:ZMM_TT_WSMESSAGES" />
+            <xsd:element name="T_RETURN" type="tns:ZRFC_TT_BAPIRET2" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ZMM005_UYSTOKNAKLI_09">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="I_FISNO" type="xsd:string" />
+            <xsd:element minOccurs="0" name="I_ITEM" type="tns:ZMM_S_TARTIMDET_ITEMS" />
+            <xsd:element name="I_LGPBE" type="tns:char10" />
+            <xsd:element name="I_MODE" type="tns:char1" />
+            <xsd:element name="I_OPERATION" type="xsd:string" />
+            <xsd:element name="I_YUKEMRNO" type="xsd:string" />
+            <xsd:element name="T_ITEMS" type="tns:ZMM_TT_TARTIMDET_ITEMS" />
+            <xsd:element minOccurs="0" name="T_MESSAGES" type="tns:ZMM_TT_WSMESSAGES" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ZMM005_UYSTOKNAKLI_09Response">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="E_SUBRC" type="tns:char1" />
+            <xsd:element name="T_ITEMS" type="tns:ZMM_TT_TARTIMDET_ITEMS" />
+            <xsd:element minOccurs="0" name="T_MESSAGES" type="tns:ZMM_TT_WSMESSAGES" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ZMM005_UYSTOKNAKLI_11">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="I_FISITEMS" type="tns:ZMM_S_FISITEMS_EMIR" />
+            <xsd:element name="I_OPERATION" type="tns:char1" />
+            <xsd:element name="I_UNAME" type="tns:char30" />
+            <xsd:element name="T_MESSAGES" type="tns:ZMM_TT_WSMESSAGES" />
+            <xsd:element name="T_TABLE" type="tns:ZMM_TT_UY03" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ZMM005_UYSTOKNAKLI_11Response">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="E_EXPORT" type="tns:ZPP_S_SAYIM" />
+            <xsd:element name="E_SUBRC" type="tns:char1" />
+            <xsd:element name="E_TOPOKUTULAN" type="tns:quantum13.3" />
+            <xsd:element name="T_MESSAGES" type="tns:ZMM_TT_WSMESSAGES" />
+            <xsd:element name="T_TABLE" type="tns:ZMM_TT_UY03" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ZMM007_DEPO_YERI">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="I_WERKS" type="tns:char4" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ZMM007_DEPO_YERIResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="TB_DEPO" type="tns:ZMM_TT_LGORT" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ZMM007_GET_WERKS">
+        <xsd:complexType>
+          <xsd:sequence />
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ZMM007_GET_WERKSResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="E_MESSAGE" type="tns:ZMM_S_WSMESSAGES" />
+            <xsd:element name="E_SUBRC" type="tns:numeric2" />
+            <xsd:element name="E_WERKS" type="tns:char4" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ZMM007_REZERVASYONLU_01">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="I_IPNBR" type="tns:char20" />
+            <xsd:element minOccurs="0" name="I_LGORT" type="tns:char4" />
+            <xsd:element minOccurs="0" name="I_RSNUM" type="tns:numeric10" />
+            <xsd:element minOccurs="0" name="I_WERKS" type="tns:char4" />
+            <xsd:element minOccurs="0" name="TB_REZBAS" type="tns:ZMM_TT_REZBAS" />
+            <xsd:element minOccurs="0" name="TB_REZLIST" type="tns:ZMM_TT_REZLIST" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ZMM007_REZERVASYONLU_01Response">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="E_MESSAGE" type="tns:ZMM_S_WSMESSAGES" />
+            <xsd:element minOccurs="0" name="TB_REZBAS" type="tns:ZMM_TT_REZBAS" />
+            <xsd:element minOccurs="0" name="TB_REZLIST" type="tns:ZMM_TT_REZLIST" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ZMM007_REZERVASYONLU_02">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="I_BARKOD" type="tns:char40" />
+            <xsd:element name="I_IPNBR" type="tns:char20" />
+            <xsd:element name="I_MIKTAR" type="tns:quantum13.3" />
+            <xsd:element name="TB_REZLIST" type="tns:ZMM_TT_REZLIST" />
+            <xsd:element name="TB_REZVER" type="tns:ZMM_TT_REZLIST" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ZMM007_REZERVASYONLU_02Response">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="E_MESSAGE" type="tns:ZMM_S_WSMESSAGES" />
+            <xsd:element name="TB_REZLIST" type="tns:ZMM_TT_REZLIST" />
+            <xsd:element name="TB_REZVER" type="tns:ZMM_TT_REZLIST" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ZMM007_REZERVASYONLU_03">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="I_IPNBR" type="tns:char20" />
+            <xsd:element minOccurs="0" name="I_MIKTAR" type="xsd:string" />
+            <xsd:element name="I_MODE" type="tns:char1" />
+            <xsd:element name="I_PERNR" type="tns:numeric8" />
+            <xsd:element name="I_REZVER" type="tns:ZMM_S_REZLIST" />
+            <xsd:element name="TB_REZPERS" type="tns:ZMM_TT_REZPERS" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ZMM007_REZERVASYONLU_03Response">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="E_COUNT" type="tns:char3" />
+            <xsd:element name="E_MESSAGE" type="tns:char100" />
+            <xsd:element name="E_MIKTAR" type="xsd:string" />
+            <xsd:element name="E_SUBRC" type="tns:char1" />
+            <xsd:element name="TB_REZPERS" type="tns:ZMM_TT_REZPERS" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ZMM007_REZERVASYONLU_04">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="I_IPNBR" type="tns:char20" />
+            <xsd:element name="T_MESSAGES" type="tns:ZMM_TT_WSMESSAGES" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ZMM007_REZERVASYONLU_04Response">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="E_MESSAGE" type="tns:ZMM_S_WSMESSAGES" />
+            <xsd:element name="T_MESSAGES" type="tns:ZMM_TT_WSMESSAGES" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ZMM007_REZERVASYONSUZ_00">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="I_IPNBR" type="tns:char20" />
+            <xsd:element minOccurs="0" name="I_LGORT" type="tns:char4" />
+            <xsd:element minOccurs="0" name="I_WERKS" type="tns:char4" />
+            <xsd:element minOccurs="0" name="TB_HRKTIP" type="tns:ZMM_TT_HRKTIP" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ZMM007_REZERVASYONSUZ_00Response">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="E_MESSAGE" type="tns:ZMM_S_WSMESSAGES" />
+            <xsd:element minOccurs="0" name="TB_HRKTIP" type="tns:ZMM_TT_HRKTIP" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ZMM007_REZERVASYONSUZ_01">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="I_IPNBR" type="tns:char20" />
+            <xsd:element minOccurs="0" name="I_LGORT" type="tns:char4" />
+            <xsd:element minOccurs="0" name="I_RZVSIZ01" type="tns:ZMM_S_RZVSIZ01" />
+            <xsd:element minOccurs="0" name="I_WERKS" type="tns:char4" />
+            <xsd:element minOccurs="0" name="TB_REZBAS" type="tns:ZMM_TT_REZBAS" />
+            <xsd:element minOccurs="0" name="TB_RZVLIST" type="tns:ZMM_TT_RZVLIST" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ZMM007_REZERVASYONSUZ_01Response">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="E_MESSAGE" type="tns:ZMM_S_WSMESSAGES" />
+            <xsd:element minOccurs="0" name="TB_REZBAS" type="tns:ZMM_TT_REZBAS" />
+            <xsd:element minOccurs="0" name="TB_RZVLIST" type="tns:ZMM_TT_RZVLIST" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ZMM007_REZERVASYONSUZ_02">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="I_BARKOD" type="tns:char40" />
+            <xsd:element name="I_IPNBR" type="tns:char20" />
+            <xsd:element name="I_LGORT" type="tns:char4" />
+            <xsd:element name="I_MIKTAR" type="tns:quantum13.3" />
+            <xsd:element name="I_MODE" type="tns:char1" />
+            <xsd:element name="I_WERKS" type="tns:char4" />
+            <xsd:element minOccurs="0" name="TB_RZVLIST" type="tns:ZMM_TT_RZVLIST" />
+            <xsd:element minOccurs="0" name="TB_RZVVER" type="tns:ZMM_TT_RZVLIST" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ZMM007_REZERVASYONSUZ_02Response">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="E_MESSAGE" type="tns:ZMM_S_WSMESSAGES" />
+            <xsd:element name="E_MLZINFO" type="tns:ZMM_S_RZVLIST" />
+            <xsd:element minOccurs="0" name="TB_RZVLIST" type="tns:ZMM_TT_RZVLIST" />
+            <xsd:element minOccurs="0" name="TB_RZVVER" type="tns:ZMM_TT_RZVLIST" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ZMM007_REZERVASYONSUZ_03">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="I_IPNBR" type="tns:char20" />
+            <xsd:element minOccurs="0" name="I_MIKTAR" type="xsd:string" />
+            <xsd:element name="I_MODE" type="tns:char1" />
+            <xsd:element name="I_PERNR" type="tns:numeric8" />
+            <xsd:element name="I_RZVVER" type="tns:ZMM_S_RZVLIST" />
+            <xsd:element name="TB_REZPERS" type="tns:ZMM_TT_REZPERS" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ZMM007_REZERVASYONSUZ_03Response">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="E_COUNT" type="tns:char3" />
+            <xsd:element name="E_MESSAGE" type="tns:char100" />
+            <xsd:element name="E_MIKTAR" type="xsd:string" />
+            <xsd:element name="E_SUBRC" type="tns:char1" />
+            <xsd:element name="TB_REZPERS" type="tns:ZMM_TT_REZPERS" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ZMM007_REZERVASYONSUZ_04">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="I_IPNBR" type="tns:char20" />
+            <xsd:element name="T_MESSAGES" type="tns:ZMM_TT_WSMESSAGES" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ZMM007_REZERVASYONSUZ_04Response">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="E_MESSAGE" type="tns:ZMM_S_WSMESSAGES" />
+            <xsd:element name="T_MESSAGES" type="tns:ZMM_TT_WSMESSAGES" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ZMM007_SAYIM">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="I_BARKOD" type="tns:char40" />
+            <xsd:element name="I_LGORT" type="tns:char4" />
+            <xsd:element name="I_WERKS" type="tns:char4" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ZMM007_SAYIMResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="CHARG" type="tns:char10" />
+            <xsd:element name="DEPO_MKT" type="tns:quantum13.3" />
+            <xsd:element name="DIGER" type="tns:char10" />
+            <xsd:element name="DIGER_MKT" type="tns:quantum13.3" />
+            <xsd:element name="E_MESSAGE" type="tns:ZMM_S_WSMESSAGES" />
+            <xsd:element name="KALAB" type="tns:quantum13.3" />
+            <xsd:element name="LGPBE" type="tns:char10" />
+            <xsd:element name="MAKTX" type="tns:char40" />
+            <xsd:element name="MATNR" type="tns:char18" />
+            <xsd:element name="MEINS" type="tns:unit3" />
+            <xsd:element name="SAYIM" type="tns:quantum13.3" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ZMM007_SAYIM_KAYDET">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="I_BARKOD" type="tns:char40" />
+            <xsd:element name="I_LGORT" type="tns:char4" />
+            <xsd:element name="I_SAYIM" type="tns:quantum13.3" />
+            <xsd:element name="I_WERKS" type="tns:char4" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ZMM007_SAYIM_KAYDETResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="E_MESSAGE" type="tns:ZMM_S_WSMESSAGES" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ZMM007_TOPLU_ALAN_DEGIS">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="I_WERKS" type="tns:char4" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ZMM007_TOPLU_ALAN_DEGISResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="E_RETURN" type="tns:ZMM_S_WSMESSAGES" />
+            <xsd:element name="S_DEGROW" type="tns:ZMM_S_TOPDEG" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ZMM007_TOPLU_ALAN_DEGIS_BUL">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="I_BARKOD" type="tns:char40" />
+            <xsd:element name="I_LGORT" type="tns:char4" />
+            <xsd:element name="I_WERKS" type="tns:char4" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ZMM007_TOPLU_ALAN_DEGIS_BULResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="CHARG" type="tns:char10" />
+            <xsd:element name="E_RETURN" type="tns:ZMM_S_WSMESSAGES" />
+            <xsd:element name="KALAB" type="tns:quantum13.3" />
+            <xsd:element name="LGPBE" type="tns:char10" />
+            <xsd:element name="MAKTX" type="tns:char40" />
+            <xsd:element name="MATNR" type="tns:char18" />
+            <xsd:element name="MEINS" type="tns:unit3" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ZMM007_TOPLU_ALAN_DEGIS_SAVE">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="I_BARKOD" type="tns:char40" />
+            <xsd:element name="I_LGORT" type="tns:char4" />
+            <xsd:element name="I_LGPBE" type="tns:char10" />
+            <xsd:element name="I_WERKS" type="tns:char4" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ZMM007_TOPLU_ALAN_DEGIS_SAVEResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="CHARG" type="tns:char10" />
+            <xsd:element name="E_RETURN" type="tns:ZMM_S_WSMESSAGES" />
+            <xsd:element name="KALAB" type="tns:quantum13.3" />
+            <xsd:element name="LGPBE" type="tns:char10" />
+            <xsd:element name="MAKTX" type="tns:char40" />
+            <xsd:element name="MATNR" type="tns:char18" />
+            <xsd:element name="MEINS" type="tns:unit3" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ZMM007_TOP_IST_MLZ_LIST">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="I_BARKOD" type="tns:char40" />
+            <xsd:element minOccurs="0" name="I_IPNBR" type="tns:char20" />
+            <xsd:element minOccurs="0" name="I_LGORT" type="tns:char4" />
+            <xsd:element minOccurs="0" name="I_MIKTAR" type="xsd:string" />
+            <xsd:element minOccurs="0" name="I_WERKS" type="tns:char4" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ZMM007_TOP_IST_MLZ_LISTResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="E_RETURN" type="tns:ZMM_S_WSMESSAGES" />
+            <xsd:element name="S_MLZROW" type="tns:ZMM_S_TOPMLZM" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ZMM007_TOP_IST_MLZ_SAVE">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="I_IPNBR" type="tns:char20" />
+            <xsd:element minOccurs="0" name="I_LGORT" type="tns:char4" />
+            <xsd:element minOccurs="0" name="I_WERKS" type="tns:char4" />
+            <xsd:element name="TB_TOPMLZ" type="tns:TABLE_OF_ZMM_S_TOPMLZM" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ZMM007_TOP_IST_MLZ_SAVEResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="E_RETURN" type="tns:ZMM_S_WSMESSAGES" />
+            <xsd:element name="TB_TOPMLZ" type="tns:TABLE_OF_ZMM_S_TOPMLZM" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ZMM007_TOP_IST_PER_KONT">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="I_IPNBR" type="tns:char20" />
+            <xsd:element minOccurs="0" name="I_PERNR" type="tns:numeric8" />
+            <xsd:element minOccurs="0" name="I_WERKS" type="tns:char4" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ZMM007_TOP_IST_PER_KONTResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="ADSOYAD" type="tns:char50" />
+            <xsd:element name="BOLUM" type="tns:char50" />
+            <xsd:element name="E_RETURN" type="tns:ZMM_S_WSMESSAGES" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ZMM007_TOP_IST_PER_KONT_SAVE">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element minOccurs="0" name="I_IPNBR" type="tns:char20" />
+            <xsd:element minOccurs="0" name="I_PERNR" type="tns:numeric8" />
+            <xsd:element minOccurs="0" name="I_WERKS" type="tns:char4" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ZMM007_TOP_IST_PER_KONT_SAVEResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="E_RETURN" type="tns:ZMM_S_WSMESSAGES" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ZSD_F_BAR_KONTROL">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="ET_BAR_LIST" type="tns:ZSD_TT_BAR_LIST" />
+            <xsd:element name="I_FISNO" type="tns:char11" />
+            <xsd:element name="I_OPERATION" type="tns:char1" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ZSD_F_BAR_KONTROLResponse">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="ET_BAR_LIST" type="tns:ZSD_TT_BAR_LIST" />
+            <xsd:element name="E_HATA" type="tns:char100" />
+            <xsd:element name="E_SUBRC" type="tns:char1" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ZSD_F_TERMINAL_YUKLEME_01">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="ET_YE_LIST" type="tns:ZSD_TT_YE_LIST" />
+            <xsd:element name="I_FISNO" type="tns:char11" />
+            <xsd:element minOccurs="0" name="I_KONSI" type="tns:char30" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ZSD_F_TERMINAL_YUKLEME_01Response">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="ET_YE_LIST" type="tns:ZSD_TT_YE_LIST" />
+            <xsd:element name="E_HATA" type="tns:char100" />
+            <xsd:element name="E_SUBRC" type="tns:char1" />
+            <xsd:element name="E_TOTKG" type="tns:quantum13.3" />
+            <xsd:element name="E_TOTPK" type="tns:quantum13.3" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ZSD_F_TERMINAL_YUKLEME_02">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="ET_YE_DET" type="tns:TABLE_OF_ZSD_S_TARTIM_DET_TRM" />
+            <xsd:element name="I_OPERATION" type="tns:char1" />
+            <xsd:element name="I_UNAME" type="tns:char30" />
+            <xsd:element name="I_YE_LIST" type="tns:ZSD_S_YE_LIST" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+      <xsd:element name="ZSD_F_TERMINAL_YUKLEME_02Response">
+        <xsd:complexType>
+          <xsd:sequence>
+            <xsd:element name="ET_YE_DET" type="tns:TABLE_OF_ZSD_S_TARTIM_DET_TRM" />
+            <xsd:element name="E_HATA" type="tns:char100" />
+            <xsd:element name="E_SUBRC" type="tns:char1" />
+            <xsd:element name="E_TOTAL" type="tns:quantum13.3" />
+            <xsd:element name="E_TOTKG" type="tns:quantum13.3" />
+            <xsd:element name="E_TOTPK" type="tns:quantum13.3" />
+          </xsd:sequence>
+        </xsd:complexType>
+      </xsd:element>
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="ZMM005_FISKAYITDURUMU">
+    <wsdl:part name="parameters" element="tns:ZMM005_FISKAYITDURUMU" />
+  </wsdl:message>
+  <wsdl:message name="ZMM005_FISKAYITDURUMUResponse">
+    <wsdl:part name="parameter" element="tns:ZMM005_FISKAYITDURUMUResponse" />
+  </wsdl:message>
+  <wsdl:message name="ZMM005_GOODSMVT_CANCEL">
+    <wsdl:part name="parameters" element="tns:ZMM005_GOODSMVT_CANCEL" />
+  </wsdl:message>
+  <wsdl:message name="ZMM005_GOODSMVT_CANCELResponse">
+    <wsdl:part name="parameter" element="tns:ZMM005_GOODSMVT_CANCELResponse" />
+  </wsdl:message>
+  <wsdl:message name="ZMM005_MALZEMELOKASYON_01">
+    <wsdl:part name="parameters" element="tns:ZMM005_MALZEMELOKASYON_01" />
+  </wsdl:message>
+  <wsdl:message name="ZMM005_MALZEMELOKASYON_01Response">
+    <wsdl:part name="parameter" element="tns:ZMM005_MALZEMELOKASYON_01Response" />
+  </wsdl:message>
+  <wsdl:message name="ZMM005_MALZEMELOKASYON_02">
+    <wsdl:part name="parameters" element="tns:ZMM005_MALZEMELOKASYON_02" />
+  </wsdl:message>
+  <wsdl:message name="ZMM005_MALZEMELOKASYON_02Response">
+    <wsdl:part name="parameter" element="tns:ZMM005_MALZEMELOKASYON_02Response" />
+  </wsdl:message>
+  <wsdl:message name="ZMM005_MODE">
+    <wsdl:part name="parameters" element="tns:ZMM005_MODE" />
+  </wsdl:message>
+  <wsdl:message name="ZMM005_MODEResponse">
+    <wsdl:part name="parameter" element="tns:ZMM005_MODEResponse" />
+  </wsdl:message>
+  <wsdl:message name="ZMM005_RULOGIRIS_01">
+    <wsdl:part name="parameters" element="tns:ZMM005_RULOGIRIS_01" />
+  </wsdl:message>
+  <wsdl:message name="ZMM005_RULOGIRIS_01Response">
+    <wsdl:part name="parameter" element="tns:ZMM005_RULOGIRIS_01Response" />
+  </wsdl:message>
+  <wsdl:message name="ZMM005_RULOGIRIS_02">
+    <wsdl:part name="parameters" element="tns:ZMM005_RULOGIRIS_02" />
+  </wsdl:message>
+  <wsdl:message name="ZMM005_RULOGIRIS_02Response">
+    <wsdl:part name="parameter" element="tns:ZMM005_RULOGIRIS_02Response" />
+  </wsdl:message>
+  <wsdl:message name="ZMM005_SAYIM">
+    <wsdl:part name="parameters" element="tns:ZMM005_SAYIM" />
+  </wsdl:message>
+  <wsdl:message name="ZMM005_SAYIMResponse">
+    <wsdl:part name="parameter" element="tns:ZMM005_SAYIMResponse" />
+  </wsdl:message>
+  <wsdl:message name="ZMM005_SAYIM_RESET">
+    <wsdl:part name="parameters" element="tns:ZMM005_SAYIM_RESET" />
+  </wsdl:message>
+  <wsdl:message name="ZMM005_SAYIM_RESETResponse">
+    <wsdl:part name="parameter" element="tns:ZMM005_SAYIM_RESETResponse" />
+  </wsdl:message>
+  <wsdl:message name="ZMM005_SAYIM_SAVE">
+    <wsdl:part name="parameters" element="tns:ZMM005_SAYIM_SAVE" />
+  </wsdl:message>
+  <wsdl:message name="ZMM005_SAYIM_SAVEResponse">
+    <wsdl:part name="parameter" element="tns:ZMM005_SAYIM_SAVEResponse" />
+  </wsdl:message>
+  <wsdl:message name="ZMM005_TERMINAL_BAKIM">
+    <wsdl:part name="parameters" element="tns:ZMM005_TERMINAL_BAKIM" />
+  </wsdl:message>
+  <wsdl:message name="ZMM005_TERMINAL_BAKIMResponse">
+    <wsdl:part name="parameter" element="tns:ZMM005_TERMINAL_BAKIMResponse" />
+  </wsdl:message>
+  <wsdl:message name="ZMM005_TERMINAL_GIRIS">
+    <wsdl:part name="parameters" element="tns:ZMM005_TERMINAL_GIRIS" />
+  </wsdl:message>
+  <wsdl:message name="ZMM005_TERMINAL_GIRISResponse">
+    <wsdl:part name="parameter" element="tns:ZMM005_TERMINAL_GIRISResponse" />
+  </wsdl:message>
+  <wsdl:message name="ZMM005_UYSTOKNAKLI_01">
+    <wsdl:part name="parameters" element="tns:ZMM005_UYSTOKNAKLI_01" />
+  </wsdl:message>
+  <wsdl:message name="ZMM005_UYSTOKNAKLI_01Response">
+    <wsdl:part name="parameter" element="tns:ZMM005_UYSTOKNAKLI_01Response" />
+  </wsdl:message>
+  <wsdl:message name="ZMM005_UYSTOKNAKLI_03">
+    <wsdl:part name="parameters" element="tns:ZMM005_UYSTOKNAKLI_03" />
+  </wsdl:message>
+  <wsdl:message name="ZMM005_UYSTOKNAKLI_03Response">
+    <wsdl:part name="parameter" element="tns:ZMM005_UYSTOKNAKLI_03Response" />
+  </wsdl:message>
+  <wsdl:message name="ZMM005_UYSTOKNAKLI_04">
+    <wsdl:part name="parameters" element="tns:ZMM005_UYSTOKNAKLI_04" />
+  </wsdl:message>
+  <wsdl:message name="ZMM005_UYSTOKNAKLI_04Response">
+    <wsdl:part name="parameter" element="tns:ZMM005_UYSTOKNAKLI_04Response" />
+  </wsdl:message>
+  <wsdl:message name="ZMM005_UYSTOKNAKLI_05">
+    <wsdl:part name="parameters" element="tns:ZMM005_UYSTOKNAKLI_05" />
+  </wsdl:message>
+  <wsdl:message name="ZMM005_UYSTOKNAKLI_05Response">
+    <wsdl:part name="parameter" element="tns:ZMM005_UYSTOKNAKLI_05Response" />
+  </wsdl:message>
+  <wsdl:message name="ZMM005_UYSTOKNAKLI_06">
+    <wsdl:part name="parameters" element="tns:ZMM005_UYSTOKNAKLI_06" />
+  </wsdl:message>
+  <wsdl:message name="ZMM005_UYSTOKNAKLI_06Response">
+    <wsdl:part name="parameter" element="tns:ZMM005_UYSTOKNAKLI_06Response" />
+  </wsdl:message>
+  <wsdl:message name="ZMM005_UYSTOKNAKLI_07">
+    <wsdl:part name="parameters" element="tns:ZMM005_UYSTOKNAKLI_07" />
+  </wsdl:message>
+  <wsdl:message name="ZMM005_UYSTOKNAKLI_07Response">
+    <wsdl:part name="parameter" element="tns:ZMM005_UYSTOKNAKLI_07Response" />
+  </wsdl:message>
+  <wsdl:message name="ZMM005_UYSTOKNAKLI_08">
+    <wsdl:part name="parameters" element="tns:ZMM005_UYSTOKNAKLI_08" />
+  </wsdl:message>
+  <wsdl:message name="ZMM005_UYSTOKNAKLI_08Response">
+    <wsdl:part name="parameter" element="tns:ZMM005_UYSTOKNAKLI_08Response" />
+  </wsdl:message>
+  <wsdl:message name="ZMM005_UYSTOKNAKLI_09">
+    <wsdl:part name="parameters" element="tns:ZMM005_UYSTOKNAKLI_09" />
+  </wsdl:message>
+  <wsdl:message name="ZMM005_UYSTOKNAKLI_09Response">
+    <wsdl:part name="parameter" element="tns:ZMM005_UYSTOKNAKLI_09Response" />
+  </wsdl:message>
+  <wsdl:message name="ZMM005_UYSTOKNAKLI_11">
+    <wsdl:part name="parameters" element="tns:ZMM005_UYSTOKNAKLI_11" />
+  </wsdl:message>
+  <wsdl:message name="ZMM005_UYSTOKNAKLI_11Response">
+    <wsdl:part name="parameter" element="tns:ZMM005_UYSTOKNAKLI_11Response" />
+  </wsdl:message>
+  <wsdl:message name="ZMM007_DEPO_YERI">
+    <wsdl:part name="parameters" element="tns:ZMM007_DEPO_YERI" />
+  </wsdl:message>
+  <wsdl:message name="ZMM007_DEPO_YERIResponse">
+    <wsdl:part name="parameter" element="tns:ZMM007_DEPO_YERIResponse" />
+  </wsdl:message>
+  <wsdl:message name="ZMM007_GET_WERKS">
+    <wsdl:part name="parameters" element="tns:ZMM007_GET_WERKS" />
+  </wsdl:message>
+  <wsdl:message name="ZMM007_GET_WERKSResponse">
+    <wsdl:part name="parameter" element="tns:ZMM007_GET_WERKSResponse" />
+  </wsdl:message>
+  <wsdl:message name="ZMM007_REZERVASYONLU_01">
+    <wsdl:part name="parameters" element="tns:ZMM007_REZERVASYONLU_01" />
+  </wsdl:message>
+  <wsdl:message name="ZMM007_REZERVASYONLU_01Response">
+    <wsdl:part name="parameter" element="tns:ZMM007_REZERVASYONLU_01Response" />
+  </wsdl:message>
+  <wsdl:message name="ZMM007_REZERVASYONLU_02">
+    <wsdl:part name="parameters" element="tns:ZMM007_REZERVASYONLU_02" />
+  </wsdl:message>
+  <wsdl:message name="ZMM007_REZERVASYONLU_02Response">
+    <wsdl:part name="parameter" element="tns:ZMM007_REZERVASYONLU_02Response" />
+  </wsdl:message>
+  <wsdl:message name="ZMM007_REZERVASYONLU_03">
+    <wsdl:part name="parameters" element="tns:ZMM007_REZERVASYONLU_03" />
+  </wsdl:message>
+  <wsdl:message name="ZMM007_REZERVASYONLU_03Response">
+    <wsdl:part name="parameter" element="tns:ZMM007_REZERVASYONLU_03Response" />
+  </wsdl:message>
+  <wsdl:message name="ZMM007_REZERVASYONLU_04">
+    <wsdl:part name="parameters" element="tns:ZMM007_REZERVASYONLU_04" />
+  </wsdl:message>
+  <wsdl:message name="ZMM007_REZERVASYONLU_04Response">
+    <wsdl:part name="parameter" element="tns:ZMM007_REZERVASYONLU_04Response" />
+  </wsdl:message>
+  <wsdl:message name="ZMM007_REZERVASYONSUZ_00">
+    <wsdl:part name="parameters" element="tns:ZMM007_REZERVASYONSUZ_00" />
+  </wsdl:message>
+  <wsdl:message name="ZMM007_REZERVASYONSUZ_00Response">
+    <wsdl:part name="parameter" element="tns:ZMM007_REZERVASYONSUZ_00Response" />
+  </wsdl:message>
+  <wsdl:message name="ZMM007_REZERVASYONSUZ_01">
+    <wsdl:part name="parameters" element="tns:ZMM007_REZERVASYONSUZ_01" />
+  </wsdl:message>
+  <wsdl:message name="ZMM007_REZERVASYONSUZ_01Response">
+    <wsdl:part name="parameter" element="tns:ZMM007_REZERVASYONSUZ_01Response" />
+  </wsdl:message>
+  <wsdl:message name="ZMM007_REZERVASYONSUZ_02">
+    <wsdl:part name="parameters" element="tns:ZMM007_REZERVASYONSUZ_02" />
+  </wsdl:message>
+  <wsdl:message name="ZMM007_REZERVASYONSUZ_02Response">
+    <wsdl:part name="parameter" element="tns:ZMM007_REZERVASYONSUZ_02Response" />
+  </wsdl:message>
+  <wsdl:message name="ZMM007_REZERVASYONSUZ_03">
+    <wsdl:part name="parameters" element="tns:ZMM007_REZERVASYONSUZ_03" />
+  </wsdl:message>
+  <wsdl:message name="ZMM007_REZERVASYONSUZ_03Response">
+    <wsdl:part name="parameter" element="tns:ZMM007_REZERVASYONSUZ_03Response" />
+  </wsdl:message>
+  <wsdl:message name="ZMM007_REZERVASYONSUZ_04">
+    <wsdl:part name="parameters" element="tns:ZMM007_REZERVASYONSUZ_04" />
+  </wsdl:message>
+  <wsdl:message name="ZMM007_REZERVASYONSUZ_04Response">
+    <wsdl:part name="parameter" element="tns:ZMM007_REZERVASYONSUZ_04Response" />
+  </wsdl:message>
+  <wsdl:message name="ZMM007_SAYIM">
+    <wsdl:part name="parameters" element="tns:ZMM007_SAYIM" />
+  </wsdl:message>
+  <wsdl:message name="ZMM007_SAYIMResponse">
+    <wsdl:part name="parameter" element="tns:ZMM007_SAYIMResponse" />
+  </wsdl:message>
+  <wsdl:message name="ZMM007_SAYIM_KAYDET">
+    <wsdl:part name="parameters" element="tns:ZMM007_SAYIM_KAYDET" />
+  </wsdl:message>
+  <wsdl:message name="ZMM007_SAYIM_KAYDETResponse">
+    <wsdl:part name="parameter" element="tns:ZMM007_SAYIM_KAYDETResponse" />
+  </wsdl:message>
+  <wsdl:message name="ZMM007_TOPLU_ALAN_DEGIS">
+    <wsdl:part name="parameters" element="tns:ZMM007_TOPLU_ALAN_DEGIS" />
+  </wsdl:message>
+  <wsdl:message name="ZMM007_TOPLU_ALAN_DEGISResponse">
+    <wsdl:part name="parameter" element="tns:ZMM007_TOPLU_ALAN_DEGISResponse" />
+  </wsdl:message>
+  <wsdl:message name="ZMM007_TOPLU_ALAN_DEGIS_BUL">
+    <wsdl:part name="parameters" element="tns:ZMM007_TOPLU_ALAN_DEGIS_BUL" />
+  </wsdl:message>
+  <wsdl:message name="ZMM007_TOPLU_ALAN_DEGIS_BULResponse">
+    <wsdl:part name="parameter" element="tns:ZMM007_TOPLU_ALAN_DEGIS_BULResponse" />
+  </wsdl:message>
+  <wsdl:message name="ZMM007_TOPLU_ALAN_DEGIS_SAVE">
+    <wsdl:part name="parameters" element="tns:ZMM007_TOPLU_ALAN_DEGIS_SAVE" />
+  </wsdl:message>
+  <wsdl:message name="ZMM007_TOPLU_ALAN_DEGIS_SAVEResponse">
+    <wsdl:part name="parameter" element="tns:ZMM007_TOPLU_ALAN_DEGIS_SAVEResponse" />
+  </wsdl:message>
+  <wsdl:message name="ZMM007_TOP_IST_MLZ_LIST">
+    <wsdl:part name="parameters" element="tns:ZMM007_TOP_IST_MLZ_LIST" />
+  </wsdl:message>
+  <wsdl:message name="ZMM007_TOP_IST_MLZ_LISTResponse">
+    <wsdl:part name="parameter" element="tns:ZMM007_TOP_IST_MLZ_LISTResponse" />
+  </wsdl:message>
+  <wsdl:message name="ZMM007_TOP_IST_MLZ_SAVE">
+    <wsdl:part name="parameters" element="tns:ZMM007_TOP_IST_MLZ_SAVE" />
+  </wsdl:message>
+  <wsdl:message name="ZMM007_TOP_IST_MLZ_SAVEResponse">
+    <wsdl:part name="parameter" element="tns:ZMM007_TOP_IST_MLZ_SAVEResponse" />
+  </wsdl:message>
+  <wsdl:message name="ZMM007_TOP_IST_PER_KONT">
+    <wsdl:part name="parameters" element="tns:ZMM007_TOP_IST_PER_KONT" />
+  </wsdl:message>
+  <wsdl:message name="ZMM007_TOP_IST_PER_KONTResponse">
+    <wsdl:part name="parameter" element="tns:ZMM007_TOP_IST_PER_KONTResponse" />
+  </wsdl:message>
+  <wsdl:message name="ZMM007_TOP_IST_PER_KONT_SAVE">
+    <wsdl:part name="parameters" element="tns:ZMM007_TOP_IST_PER_KONT_SAVE" />
+  </wsdl:message>
+  <wsdl:message name="ZMM007_TOP_IST_PER_KONT_SAVEResponse">
+    <wsdl:part name="parameter" element="tns:ZMM007_TOP_IST_PER_KONT_SAVEResponse" />
+  </wsdl:message>
+  <wsdl:message name="ZSD_F_BAR_KONTROL">
+    <wsdl:part name="parameters" element="tns:ZSD_F_BAR_KONTROL" />
+  </wsdl:message>
+  <wsdl:message name="ZSD_F_BAR_KONTROLResponse">
+    <wsdl:part name="parameter" element="tns:ZSD_F_BAR_KONTROLResponse" />
+  </wsdl:message>
+  <wsdl:message name="ZSD_F_TERMINAL_YUKLEME_01">
+    <wsdl:part name="parameters" element="tns:ZSD_F_TERMINAL_YUKLEME_01" />
+  </wsdl:message>
+  <wsdl:message name="ZSD_F_TERMINAL_YUKLEME_01Response">
+    <wsdl:part name="parameter" element="tns:ZSD_F_TERMINAL_YUKLEME_01Response" />
+  </wsdl:message>
+  <wsdl:message name="ZSD_F_TERMINAL_YUKLEME_02">
+    <wsdl:part name="parameters" element="tns:ZSD_F_TERMINAL_YUKLEME_02" />
+  </wsdl:message>
+  <wsdl:message name="ZSD_F_TERMINAL_YUKLEME_02Response">
+    <wsdl:part name="parameter" element="tns:ZSD_F_TERMINAL_YUKLEME_02Response" />
+  </wsdl:message>
+  <wsdl:portType name="ZMM_WS_TERMINAL_FUNCTIONS">
+    <wsdl:documentation>
+      <sapdoc:sapdoc xmlns:sapdoc="urn:sap:esi:documentation">
+        <sapdoc:docitem docURL="http://ycbrdev01.yucelborugrup.local:8000/sap/bc/esdt/docu/sd_text?sap-client=200&amp;sd_name=ZMM_WS_TERMINAL_FUNCTIONS" />
+      </sapdoc:sapdoc>
+    </wsdl:documentation>
+    <wsp:Policy>
+      <wsp:PolicyReference URI="#IF_IF_ZMM_WS_TERMINAL_FUNCTIONS" />
+    </wsp:Policy>
+    <wsdl:operation name="ZMM005_FISKAYITDURUMU">
+      <wsp:Policy>
+        <wsp:PolicyReference URI="#OP_IF_OP_ZMM005_FISKAYITDURUMU" />
+      </wsp:Policy>
+      <wsdl:input message="tns:ZMM005_FISKAYITDURUMU" />
+      <wsdl:output message="tns:ZMM005_FISKAYITDURUMUResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="ZMM005_GOODSMVT_CANCEL">
+      <wsp:Policy>
+        <wsp:PolicyReference URI="#OP_IF_OP_ZMM005_GOODSMVT_CANCEL" />
+      </wsp:Policy>
+      <wsdl:input message="tns:ZMM005_GOODSMVT_CANCEL" />
+      <wsdl:output message="tns:ZMM005_GOODSMVT_CANCELResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="ZMM005_MALZEMELOKASYON_01">
+      <wsp:Policy>
+        <wsp:PolicyReference URI="#OP_IF_OP_ZMM005_MALZEMELOKASYON_01" />
+      </wsp:Policy>
+      <wsdl:input message="tns:ZMM005_MALZEMELOKASYON_01" />
+      <wsdl:output message="tns:ZMM005_MALZEMELOKASYON_01Response" />
+    </wsdl:operation>
+    <wsdl:operation name="ZMM005_MALZEMELOKASYON_02">
+      <wsp:Policy>
+        <wsp:PolicyReference URI="#OP_IF_OP_ZMM005_MALZEMELOKASYON_02" />
+      </wsp:Policy>
+      <wsdl:input message="tns:ZMM005_MALZEMELOKASYON_02" />
+      <wsdl:output message="tns:ZMM005_MALZEMELOKASYON_02Response" />
+    </wsdl:operation>
+    <wsdl:operation name="ZMM005_MODE">
+      <wsp:Policy>
+        <wsp:PolicyReference URI="#OP_IF_OP_ZMM005_MODE" />
+      </wsp:Policy>
+      <wsdl:input message="tns:ZMM005_MODE" />
+      <wsdl:output message="tns:ZMM005_MODEResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="ZMM005_RULOGIRIS_01">
+      <wsp:Policy>
+        <wsp:PolicyReference URI="#OP_IF_OP_ZMM005_RULOGIRIS_01" />
+      </wsp:Policy>
+      <wsdl:input message="tns:ZMM005_RULOGIRIS_01" />
+      <wsdl:output message="tns:ZMM005_RULOGIRIS_01Response" />
+    </wsdl:operation>
+    <wsdl:operation name="ZMM005_RULOGIRIS_02">
+      <wsp:Policy>
+        <wsp:PolicyReference URI="#OP_IF_OP_ZMM005_RULOGIRIS_02" />
+      </wsp:Policy>
+      <wsdl:input message="tns:ZMM005_RULOGIRIS_02" />
+      <wsdl:output message="tns:ZMM005_RULOGIRIS_02Response" />
+    </wsdl:operation>
+    <wsdl:operation name="ZMM005_SAYIM">
+      <wsp:Policy>
+        <wsp:PolicyReference URI="#OP_IF_OP_ZMM005_SAYIM" />
+      </wsp:Policy>
+      <wsdl:input message="tns:ZMM005_SAYIM" />
+      <wsdl:output message="tns:ZMM005_SAYIMResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="ZMM005_SAYIM_RESET">
+      <wsp:Policy>
+        <wsp:PolicyReference URI="#OP_IF_OP_ZMM005_SAYIM_RESET" />
+      </wsp:Policy>
+      <wsdl:input message="tns:ZMM005_SAYIM_RESET" />
+      <wsdl:output message="tns:ZMM005_SAYIM_RESETResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="ZMM005_SAYIM_SAVE">
+      <wsp:Policy>
+        <wsp:PolicyReference URI="#OP_IF_OP_ZMM005_SAYIM_SAVE" />
+      </wsp:Policy>
+      <wsdl:input message="tns:ZMM005_SAYIM_SAVE" />
+      <wsdl:output message="tns:ZMM005_SAYIM_SAVEResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="ZMM005_TERMINAL_BAKIM">
+      <wsp:Policy>
+        <wsp:PolicyReference URI="#OP_IF_OP_ZMM005_TERMINAL_BAKIM" />
+      </wsp:Policy>
+      <wsdl:input message="tns:ZMM005_TERMINAL_BAKIM" />
+      <wsdl:output message="tns:ZMM005_TERMINAL_BAKIMResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="ZMM005_TERMINAL_GIRIS">
+      <wsp:Policy>
+        <wsp:PolicyReference URI="#OP_IF_OP_ZMM005_TERMINAL_GIRIS" />
+      </wsp:Policy>
+      <wsdl:input message="tns:ZMM005_TERMINAL_GIRIS" />
+      <wsdl:output message="tns:ZMM005_TERMINAL_GIRISResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="ZMM005_UYSTOKNAKLI_01">
+      <wsp:Policy>
+        <wsp:PolicyReference URI="#OP_IF_OP_ZMM005_UYSTOKNAKLI_01" />
+      </wsp:Policy>
+      <wsdl:input message="tns:ZMM005_UYSTOKNAKLI_01" />
+      <wsdl:output message="tns:ZMM005_UYSTOKNAKLI_01Response" />
+    </wsdl:operation>
+    <wsdl:operation name="ZMM005_UYSTOKNAKLI_03">
+      <wsp:Policy>
+        <wsp:PolicyReference URI="#OP_IF_OP_ZMM005_UYSTOKNAKLI_03" />
+      </wsp:Policy>
+      <wsdl:input message="tns:ZMM005_UYSTOKNAKLI_03" />
+      <wsdl:output message="tns:ZMM005_UYSTOKNAKLI_03Response" />
+    </wsdl:operation>
+    <wsdl:operation name="ZMM005_UYSTOKNAKLI_04">
+      <wsp:Policy>
+        <wsp:PolicyReference URI="#OP_IF_OP_ZMM005_UYSTOKNAKLI_04" />
+      </wsp:Policy>
+      <wsdl:input message="tns:ZMM005_UYSTOKNAKLI_04" />
+      <wsdl:output message="tns:ZMM005_UYSTOKNAKLI_04Response" />
+    </wsdl:operation>
+    <wsdl:operation name="ZMM005_UYSTOKNAKLI_05">
+      <wsp:Policy>
+        <wsp:PolicyReference URI="#OP_IF_OP_ZMM005_UYSTOKNAKLI_05" />
+      </wsp:Policy>
+      <wsdl:input message="tns:ZMM005_UYSTOKNAKLI_05" />
+      <wsdl:output message="tns:ZMM005_UYSTOKNAKLI_05Response" />
+    </wsdl:operation>
+    <wsdl:operation name="ZMM005_UYSTOKNAKLI_06">
+      <wsp:Policy>
+        <wsp:PolicyReference URI="#OP_IF_OP_ZMM005_UYSTOKNAKLI_06" />
+      </wsp:Policy>
+      <wsdl:input message="tns:ZMM005_UYSTOKNAKLI_06" />
+      <wsdl:output message="tns:ZMM005_UYSTOKNAKLI_06Response" />
+    </wsdl:operation>
+    <wsdl:operation name="ZMM005_UYSTOKNAKLI_07">
+      <wsp:Policy>
+        <wsp:PolicyReference URI="#OP_IF_OP_ZMM005_UYSTOKNAKLI_07" />
+      </wsp:Policy>
+      <wsdl:input message="tns:ZMM005_UYSTOKNAKLI_07" />
+      <wsdl:output message="tns:ZMM005_UYSTOKNAKLI_07Response" />
+    </wsdl:operation>
+    <wsdl:operation name="ZMM005_UYSTOKNAKLI_08">
+      <wsp:Policy>
+        <wsp:PolicyReference URI="#OP_IF_OP_ZMM005_UYSTOKNAKLI_08" />
+      </wsp:Policy>
+      <wsdl:input message="tns:ZMM005_UYSTOKNAKLI_08" />
+      <wsdl:output message="tns:ZMM005_UYSTOKNAKLI_08Response" />
+    </wsdl:operation>
+    <wsdl:operation name="ZMM005_UYSTOKNAKLI_09">
+      <wsp:Policy>
+        <wsp:PolicyReference URI="#OP_IF_OP_ZMM005_UYSTOKNAKLI_09" />
+      </wsp:Policy>
+      <wsdl:input message="tns:ZMM005_UYSTOKNAKLI_09" />
+      <wsdl:output message="tns:ZMM005_UYSTOKNAKLI_09Response" />
+    </wsdl:operation>
+    <wsdl:operation name="ZMM005_UYSTOKNAKLI_11">
+      <wsp:Policy>
+        <wsp:PolicyReference URI="#OP_IF_OP_ZMM005_UYSTOKNAKLI_11" />
+      </wsp:Policy>
+      <wsdl:input message="tns:ZMM005_UYSTOKNAKLI_11" />
+      <wsdl:output message="tns:ZMM005_UYSTOKNAKLI_11Response" />
+    </wsdl:operation>
+    <wsdl:operation name="ZMM007_DEPO_YERI">
+      <wsp:Policy>
+        <wsp:PolicyReference URI="#OP_IF_OP_ZMM007_DEPO_YERI" />
+      </wsp:Policy>
+      <wsdl:input message="tns:ZMM007_DEPO_YERI" />
+      <wsdl:output message="tns:ZMM007_DEPO_YERIResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="ZMM007_GET_WERKS">
+      <wsp:Policy>
+        <wsp:PolicyReference URI="#OP_IF_OP_ZMM007_GET_WERKS" />
+      </wsp:Policy>
+      <wsdl:input message="tns:ZMM007_GET_WERKS" />
+      <wsdl:output message="tns:ZMM007_GET_WERKSResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="ZMM007_REZERVASYONLU_01">
+      <wsp:Policy>
+        <wsp:PolicyReference URI="#OP_IF_OP_ZMM007_REZERVASYONLU_01" />
+      </wsp:Policy>
+      <wsdl:input message="tns:ZMM007_REZERVASYONLU_01" />
+      <wsdl:output message="tns:ZMM007_REZERVASYONLU_01Response" />
+    </wsdl:operation>
+    <wsdl:operation name="ZMM007_REZERVASYONLU_02">
+      <wsp:Policy>
+        <wsp:PolicyReference URI="#OP_IF_OP_ZMM007_REZERVASYONLU_02" />
+      </wsp:Policy>
+      <wsdl:input message="tns:ZMM007_REZERVASYONLU_02" />
+      <wsdl:output message="tns:ZMM007_REZERVASYONLU_02Response" />
+    </wsdl:operation>
+    <wsdl:operation name="ZMM007_REZERVASYONLU_03">
+      <wsp:Policy>
+        <wsp:PolicyReference URI="#OP_IF_OP_ZMM007_REZERVASYONLU_03" />
+      </wsp:Policy>
+      <wsdl:input message="tns:ZMM007_REZERVASYONLU_03" />
+      <wsdl:output message="tns:ZMM007_REZERVASYONLU_03Response" />
+    </wsdl:operation>
+    <wsdl:operation name="ZMM007_REZERVASYONLU_04">
+      <wsp:Policy>
+        <wsp:PolicyReference URI="#OP_IF_OP_ZMM007_REZERVASYONLU_04" />
+      </wsp:Policy>
+      <wsdl:input message="tns:ZMM007_REZERVASYONLU_04" />
+      <wsdl:output message="tns:ZMM007_REZERVASYONLU_04Response" />
+    </wsdl:operation>
+    <wsdl:operation name="ZMM007_REZERVASYONSUZ_00">
+      <wsp:Policy>
+        <wsp:PolicyReference URI="#OP_IF_OP_ZMM007_REZERVASYONSUZ_00" />
+      </wsp:Policy>
+      <wsdl:input message="tns:ZMM007_REZERVASYONSUZ_00" />
+      <wsdl:output message="tns:ZMM007_REZERVASYONSUZ_00Response" />
+    </wsdl:operation>
+    <wsdl:operation name="ZMM007_REZERVASYONSUZ_01">
+      <wsp:Policy>
+        <wsp:PolicyReference URI="#OP_IF_OP_ZMM007_REZERVASYONSUZ_01" />
+      </wsp:Policy>
+      <wsdl:input message="tns:ZMM007_REZERVASYONSUZ_01" />
+      <wsdl:output message="tns:ZMM007_REZERVASYONSUZ_01Response" />
+    </wsdl:operation>
+    <wsdl:operation name="ZMM007_REZERVASYONSUZ_02">
+      <wsp:Policy>
+        <wsp:PolicyReference URI="#OP_IF_OP_ZMM007_REZERVASYONSUZ_02" />
+      </wsp:Policy>
+      <wsdl:input message="tns:ZMM007_REZERVASYONSUZ_02" />
+      <wsdl:output message="tns:ZMM007_REZERVASYONSUZ_02Response" />
+    </wsdl:operation>
+    <wsdl:operation name="ZMM007_REZERVASYONSUZ_03">
+      <wsp:Policy>
+        <wsp:PolicyReference URI="#OP_IF_OP_ZMM007_REZERVASYONSUZ_03" />
+      </wsp:Policy>
+      <wsdl:input message="tns:ZMM007_REZERVASYONSUZ_03" />
+      <wsdl:output message="tns:ZMM007_REZERVASYONSUZ_03Response" />
+    </wsdl:operation>
+    <wsdl:operation name="ZMM007_REZERVASYONSUZ_04">
+      <wsp:Policy>
+        <wsp:PolicyReference URI="#OP_IF_OP_ZMM007_REZERVASYONSUZ_04" />
+      </wsp:Policy>
+      <wsdl:input message="tns:ZMM007_REZERVASYONSUZ_04" />
+      <wsdl:output message="tns:ZMM007_REZERVASYONSUZ_04Response" />
+    </wsdl:operation>
+    <wsdl:operation name="ZMM007_SAYIM">
+      <wsp:Policy>
+        <wsp:PolicyReference URI="#OP_IF_OP_ZMM007_SAYIM" />
+      </wsp:Policy>
+      <wsdl:input message="tns:ZMM007_SAYIM" />
+      <wsdl:output message="tns:ZMM007_SAYIMResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="ZMM007_SAYIM_KAYDET">
+      <wsp:Policy>
+        <wsp:PolicyReference URI="#OP_IF_OP_ZMM007_SAYIM_KAYDET" />
+      </wsp:Policy>
+      <wsdl:input message="tns:ZMM007_SAYIM_KAYDET" />
+      <wsdl:output message="tns:ZMM007_SAYIM_KAYDETResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="ZMM007_TOPLU_ALAN_DEGIS">
+      <wsp:Policy>
+        <wsp:PolicyReference URI="#OP_IF_OP_ZMM007_TOPLU_ALAN_DEGIS" />
+      </wsp:Policy>
+      <wsdl:input message="tns:ZMM007_TOPLU_ALAN_DEGIS" />
+      <wsdl:output message="tns:ZMM007_TOPLU_ALAN_DEGISResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="ZMM007_TOPLU_ALAN_DEGIS_BUL">
+      <wsp:Policy>
+        <wsp:PolicyReference URI="#OP_IF_OP_ZMM007_TOPLU_ALAN_DEGIS_BUL" />
+      </wsp:Policy>
+      <wsdl:input message="tns:ZMM007_TOPLU_ALAN_DEGIS_BUL" />
+      <wsdl:output message="tns:ZMM007_TOPLU_ALAN_DEGIS_BULResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="ZMM007_TOPLU_ALAN_DEGIS_SAVE">
+      <wsp:Policy>
+        <wsp:PolicyReference URI="#OP_IF_OP_ZMM007_TOPLU_ALAN_DEGIS_SAVE" />
+      </wsp:Policy>
+      <wsdl:input message="tns:ZMM007_TOPLU_ALAN_DEGIS_SAVE" />
+      <wsdl:output message="tns:ZMM007_TOPLU_ALAN_DEGIS_SAVEResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="ZMM007_TOP_IST_MLZ_LIST">
+      <wsp:Policy>
+        <wsp:PolicyReference URI="#OP_IF_OP_ZMM007_TOP_IST_MLZ_LIST" />
+      </wsp:Policy>
+      <wsdl:input message="tns:ZMM007_TOP_IST_MLZ_LIST" />
+      <wsdl:output message="tns:ZMM007_TOP_IST_MLZ_LISTResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="ZMM007_TOP_IST_MLZ_SAVE">
+      <wsp:Policy>
+        <wsp:PolicyReference URI="#OP_IF_OP_ZMM007_TOP_IST_MLZ_SAVE" />
+      </wsp:Policy>
+      <wsdl:input message="tns:ZMM007_TOP_IST_MLZ_SAVE" />
+      <wsdl:output message="tns:ZMM007_TOP_IST_MLZ_SAVEResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="ZMM007_TOP_IST_PER_KONT">
+      <wsp:Policy>
+        <wsp:PolicyReference URI="#OP_IF_OP_ZMM007_TOP_IST_PER_KONT" />
+      </wsp:Policy>
+      <wsdl:input message="tns:ZMM007_TOP_IST_PER_KONT" />
+      <wsdl:output message="tns:ZMM007_TOP_IST_PER_KONTResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="ZMM007_TOP_IST_PER_KONT_SAVE">
+      <wsp:Policy>
+        <wsp:PolicyReference URI="#OP_IF_OP_ZMM007_TOP_IST_PER_KONT_SAVE" />
+      </wsp:Policy>
+      <wsdl:input message="tns:ZMM007_TOP_IST_PER_KONT_SAVE" />
+      <wsdl:output message="tns:ZMM007_TOP_IST_PER_KONT_SAVEResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="ZSD_F_BAR_KONTROL">
+      <wsp:Policy>
+        <wsp:PolicyReference URI="#OP_IF_OP_ZSD_F_BAR_KONTROL" />
+      </wsp:Policy>
+      <wsdl:input message="tns:ZSD_F_BAR_KONTROL" />
+      <wsdl:output message="tns:ZSD_F_BAR_KONTROLResponse" />
+    </wsdl:operation>
+    <wsdl:operation name="ZSD_F_TERMINAL_YUKLEME_01">
+      <wsp:Policy>
+        <wsp:PolicyReference URI="#OP_IF_OP_ZSD_F_TERMINAL_YUKLEME_01" />
+      </wsp:Policy>
+      <wsdl:input message="tns:ZSD_F_TERMINAL_YUKLEME_01" />
+      <wsdl:output message="tns:ZSD_F_TERMINAL_YUKLEME_01Response" />
+    </wsdl:operation>
+    <wsdl:operation name="ZSD_F_TERMINAL_YUKLEME_02">
+      <wsp:Policy>
+        <wsp:PolicyReference URI="#OP_IF_OP_ZSD_F_TERMINAL_YUKLEME_02" />
+      </wsp:Policy>
+      <wsdl:input message="tns:ZSD_F_TERMINAL_YUKLEME_02" />
+      <wsdl:output message="tns:ZSD_F_TERMINAL_YUKLEME_02Response" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="binding_terminal_functions" type="tns:ZMM_WS_TERMINAL_FUNCTIONS">
+    <wsp:Policy>
+      <wsp:PolicyReference URI="#BN_BN_binding_terminal_functions" />
+    </wsp:Policy>
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ZMM005_FISKAYITDURUMU">
+      <soap:operation soapAction="urn:sap-com:document:sap:rfc:functions:ZMM_WS_TERMINAL_FUNCTIONS:ZMM005_FISKAYITDURUMURequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZMM005_GOODSMVT_CANCEL">
+      <soap:operation soapAction="urn:sap-com:document:sap:rfc:functions:ZMM_WS_TERMINAL_FUNCTIONS:ZMM005_GOODSMVT_CANCELRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZMM005_MALZEMELOKASYON_01">
+      <soap:operation soapAction="urn:sap-com:document:sap:rfc:functions:ZMM_WS_TERMINAL_FUNCTIONS:ZMM005_MALZEMELOKASYON_01Request" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZMM005_MALZEMELOKASYON_02">
+      <soap:operation soapAction="urn:sap-com:document:sap:rfc:functions:ZMM_WS_TERMINAL_FUNCTIONS:ZMM005_MALZEMELOKASYON_02Request" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZMM005_MODE">
+      <soap:operation soapAction="urn:sap-com:document:sap:rfc:functions:ZMM_WS_TERMINAL_FUNCTIONS:ZMM005_MODERequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZMM005_RULOGIRIS_01">
+      <soap:operation soapAction="urn:sap-com:document:sap:rfc:functions:ZMM_WS_TERMINAL_FUNCTIONS:ZMM005_RULOGIRIS_01Request" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZMM005_RULOGIRIS_02">
+      <soap:operation soapAction="urn:sap-com:document:sap:rfc:functions:ZMM_WS_TERMINAL_FUNCTIONS:ZMM005_RULOGIRIS_02Request" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZMM005_SAYIM">
+      <soap:operation soapAction="urn:sap-com:document:sap:rfc:functions:ZMM_WS_TERMINAL_FUNCTIONS:ZMM005_SAYIMRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZMM005_SAYIM_RESET">
+      <soap:operation soapAction="urn:sap-com:document:sap:rfc:functions:ZMM_WS_TERMINAL_FUNCTIONS:ZMM005_SAYIM_RESETRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZMM005_SAYIM_SAVE">
+      <soap:operation soapAction="urn:sap-com:document:sap:rfc:functions:ZMM_WS_TERMINAL_FUNCTIONS:ZMM005_SAYIM_SAVERequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZMM005_TERMINAL_BAKIM">
+      <soap:operation soapAction="urn:sap-com:document:sap:rfc:functions:ZMM_WS_TERMINAL_FUNCTIONS:ZMM005_TERMINAL_BAKIMRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZMM005_TERMINAL_GIRIS">
+      <soap:operation soapAction="urn:sap-com:document:sap:rfc:functions:ZMM_WS_TERMINAL_FUNCTIONS:ZMM005_TERMINAL_GIRISRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZMM005_UYSTOKNAKLI_01">
+      <soap:operation soapAction="urn:sap-com:document:sap:rfc:functions:ZMM_WS_TERMINAL_FUNCTIONS:ZMM005_UYSTOKNAKLI_01Request" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZMM005_UYSTOKNAKLI_03">
+      <soap:operation soapAction="urn:sap-com:document:sap:rfc:functions:ZMM_WS_TERMINAL_FUNCTIONS:ZMM005_UYSTOKNAKLI_03Request" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZMM005_UYSTOKNAKLI_04">
+      <soap:operation soapAction="urn:sap-com:document:sap:rfc:functions:ZMM_WS_TERMINAL_FUNCTIONS:ZMM005_UYSTOKNAKLI_04Request" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZMM005_UYSTOKNAKLI_05">
+      <soap:operation soapAction="urn:sap-com:document:sap:rfc:functions:ZMM_WS_TERMINAL_FUNCTIONS:ZMM005_UYSTOKNAKLI_05Request" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZMM005_UYSTOKNAKLI_06">
+      <soap:operation soapAction="urn:sap-com:document:sap:rfc:functions:ZMM_WS_TERMINAL_FUNCTIONS:ZMM005_UYSTOKNAKLI_06Request" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZMM005_UYSTOKNAKLI_07">
+      <soap:operation soapAction="urn:sap-com:document:sap:rfc:functions:ZMM_WS_TERMINAL_FUNCTIONS:ZMM005_UYSTOKNAKLI_07Request" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZMM005_UYSTOKNAKLI_08">
+      <soap:operation soapAction="urn:sap-com:document:sap:rfc:functions:ZMM_WS_TERMINAL_FUNCTIONS:ZMM005_UYSTOKNAKLI_08Request" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZMM005_UYSTOKNAKLI_09">
+      <soap:operation soapAction="urn:sap-com:document:sap:rfc:functions:ZMM_WS_TERMINAL_FUNCTIONS:ZMM005_UYSTOKNAKLI_09Request" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZMM005_UYSTOKNAKLI_11">
+      <soap:operation soapAction="urn:sap-com:document:sap:rfc:functions:ZMM_WS_TERMINAL_FUNCTIONS:ZMM005_UYSTOKNAKLI_11Request" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZMM007_DEPO_YERI">
+      <soap:operation soapAction="urn:sap-com:document:sap:rfc:functions:ZMM_WS_TERMINAL_FUNCTIONS:ZMM007_DEPO_YERIRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZMM007_GET_WERKS">
+      <soap:operation soapAction="urn:sap-com:document:sap:rfc:functions:ZMM_WS_TERMINAL_FUNCTIONS:ZMM007_GET_WERKSRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZMM007_REZERVASYONLU_01">
+      <soap:operation soapAction="urn:sap-com:document:sap:rfc:functions:ZMM_WS_TERMINAL_FUNCTIONS:ZMM007_REZERVASYONLU_01Request" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZMM007_REZERVASYONLU_02">
+      <soap:operation soapAction="urn:sap-com:document:sap:rfc:functions:ZMM_WS_TERMINAL_FUNCTIONS:ZMM007_REZERVASYONLU_02Request" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZMM007_REZERVASYONLU_03">
+      <soap:operation soapAction="urn:sap-com:document:sap:rfc:functions:ZMM_WS_TERMINAL_FUNCTIONS:ZMM007_REZERVASYONLU_03Request" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZMM007_REZERVASYONLU_04">
+      <soap:operation soapAction="urn:sap-com:document:sap:rfc:functions:ZMM_WS_TERMINAL_FUNCTIONS:ZMM007_REZERVASYONLU_04Request" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZMM007_REZERVASYONSUZ_00">
+      <soap:operation soapAction="urn:sap-com:document:sap:rfc:functions:ZMM_WS_TERMINAL_FUNCTIONS:ZMM007_REZERVASYONSUZ_00Request" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZMM007_REZERVASYONSUZ_01">
+      <soap:operation soapAction="urn:sap-com:document:sap:rfc:functions:ZMM_WS_TERMINAL_FUNCTIONS:ZMM007_REZERVASYONSUZ_01Request" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZMM007_REZERVASYONSUZ_02">
+      <soap:operation soapAction="urn:sap-com:document:sap:rfc:functions:ZMM_WS_TERMINAL_FUNCTIONS:ZMM007_REZERVASYONSUZ_02Request" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZMM007_REZERVASYONSUZ_03">
+      <soap:operation soapAction="urn:sap-com:document:sap:rfc:functions:ZMM_WS_TERMINAL_FUNCTIONS:ZMM007_REZERVASYONSUZ_03Request" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZMM007_REZERVASYONSUZ_04">
+      <soap:operation soapAction="urn:sap-com:document:sap:rfc:functions:ZMM_WS_TERMINAL_FUNCTIONS:ZMM007_REZERVASYONSUZ_04Request" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZMM007_SAYIM">
+      <soap:operation soapAction="urn:sap-com:document:sap:rfc:functions:ZMM_WS_TERMINAL_FUNCTIONS:ZMM007_SAYIMRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZMM007_SAYIM_KAYDET">
+      <soap:operation soapAction="urn:sap-com:document:sap:rfc:functions:ZMM_WS_TERMINAL_FUNCTIONS:ZMM007_SAYIM_KAYDETRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZMM007_TOPLU_ALAN_DEGIS">
+      <soap:operation soapAction="urn:sap-com:document:sap:rfc:functions:ZMM_WS_TERMINAL_FUNCTIONS:ZMM007_TOPLU_ALAN_DEGISRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZMM007_TOPLU_ALAN_DEGIS_BUL">
+      <soap:operation soapAction="urn:sap-com:document:sap:rfc:functions:ZMM_WS_TERMINAL_FUNCTIONS:ZMM007_TOPLU_ALAN_DEGIS_BULRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZMM007_TOPLU_ALAN_DEGIS_SAVE">
+      <soap:operation soapAction="urn:sap-com:document:sap:rfc:functions:ZMM_WS_TERMINAL_FUNCTIONS:ZMM007_TOPLU_ALAN_DEGIS_SAVERequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZMM007_TOP_IST_MLZ_LIST">
+      <soap:operation soapAction="urn:sap-com:document:sap:rfc:functions:ZMM_WS_TERMINAL_FUNCTIONS:ZMM007_TOP_IST_MLZ_LISTRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZMM007_TOP_IST_MLZ_SAVE">
+      <soap:operation soapAction="urn:sap-com:document:sap:rfc:functions:ZMM_WS_TERMINAL_FUNCTIONS:ZMM007_TOP_IST_MLZ_SAVERequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZMM007_TOP_IST_PER_KONT">
+      <soap:operation soapAction="urn:sap-com:document:sap:rfc:functions:ZMM_WS_TERMINAL_FUNCTIONS:ZMM007_TOP_IST_PER_KONTRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZMM007_TOP_IST_PER_KONT_SAVE">
+      <soap:operation soapAction="urn:sap-com:document:sap:rfc:functions:ZMM_WS_TERMINAL_FUNCTIONS:ZMM007_TOP_IST_PER_KONT_SAVERequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZSD_F_BAR_KONTROL">
+      <soap:operation soapAction="urn:sap-com:document:sap:rfc:functions:ZMM_WS_TERMINAL_FUNCTIONS:ZSD_F_BAR_KONTROLRequest" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZSD_F_TERMINAL_YUKLEME_01">
+      <soap:operation soapAction="urn:sap-com:document:sap:rfc:functions:ZMM_WS_TERMINAL_FUNCTIONS:ZSD_F_TERMINAL_YUKLEME_01Request" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZSD_F_TERMINAL_YUKLEME_02">
+      <soap:operation soapAction="urn:sap-com:document:sap:rfc:functions:ZMM_WS_TERMINAL_FUNCTIONS:ZSD_F_TERMINAL_YUKLEME_02Request" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="binding_terminal_functions_SOAP12" type="tns:ZMM_WS_TERMINAL_FUNCTIONS">
+    <wsp:Policy>
+      <wsp:PolicyReference URI="#BN_BN_binding_terminal_functions_SOAP12" />
+    </wsp:Policy>
+    <wsoap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="ZMM005_FISKAYITDURUMU">
+      <wsoap12:operation soapAction="urn:sap-com:document:sap:rfc:functions:ZMM_WS_TERMINAL_FUNCTIONS:ZMM005_FISKAYITDURUMURequest" style="document" />
+      <wsdl:input>
+        <wsoap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsoap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZMM005_GOODSMVT_CANCEL">
+      <wsoap12:operation soapAction="urn:sap-com:document:sap:rfc:functions:ZMM_WS_TERMINAL_FUNCTIONS:ZMM005_GOODSMVT_CANCELRequest" style="document" />
+      <wsdl:input>
+        <wsoap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsoap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZMM005_MALZEMELOKASYON_01">
+      <wsoap12:operation soapAction="urn:sap-com:document:sap:rfc:functions:ZMM_WS_TERMINAL_FUNCTIONS:ZMM005_MALZEMELOKASYON_01Request" style="document" />
+      <wsdl:input>
+        <wsoap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsoap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZMM005_MALZEMELOKASYON_02">
+      <wsoap12:operation soapAction="urn:sap-com:document:sap:rfc:functions:ZMM_WS_TERMINAL_FUNCTIONS:ZMM005_MALZEMELOKASYON_02Request" style="document" />
+      <wsdl:input>
+        <wsoap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsoap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZMM005_MODE">
+      <wsoap12:operation soapAction="urn:sap-com:document:sap:rfc:functions:ZMM_WS_TERMINAL_FUNCTIONS:ZMM005_MODERequest" style="document" />
+      <wsdl:input>
+        <wsoap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsoap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZMM005_RULOGIRIS_01">
+      <wsoap12:operation soapAction="urn:sap-com:document:sap:rfc:functions:ZMM_WS_TERMINAL_FUNCTIONS:ZMM005_RULOGIRIS_01Request" style="document" />
+      <wsdl:input>
+        <wsoap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsoap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZMM005_RULOGIRIS_02">
+      <wsoap12:operation soapAction="urn:sap-com:document:sap:rfc:functions:ZMM_WS_TERMINAL_FUNCTIONS:ZMM005_RULOGIRIS_02Request" style="document" />
+      <wsdl:input>
+        <wsoap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsoap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZMM005_SAYIM">
+      <wsoap12:operation soapAction="urn:sap-com:document:sap:rfc:functions:ZMM_WS_TERMINAL_FUNCTIONS:ZMM005_SAYIMRequest" style="document" />
+      <wsdl:input>
+        <wsoap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsoap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZMM005_SAYIM_RESET">
+      <wsoap12:operation soapAction="urn:sap-com:document:sap:rfc:functions:ZMM_WS_TERMINAL_FUNCTIONS:ZMM005_SAYIM_RESETRequest" style="document" />
+      <wsdl:input>
+        <wsoap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsoap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZMM005_SAYIM_SAVE">
+      <wsoap12:operation soapAction="urn:sap-com:document:sap:rfc:functions:ZMM_WS_TERMINAL_FUNCTIONS:ZMM005_SAYIM_SAVERequest" style="document" />
+      <wsdl:input>
+        <wsoap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsoap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZMM005_TERMINAL_BAKIM">
+      <wsoap12:operation soapAction="urn:sap-com:document:sap:rfc:functions:ZMM_WS_TERMINAL_FUNCTIONS:ZMM005_TERMINAL_BAKIMRequest" style="document" />
+      <wsdl:input>
+        <wsoap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsoap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZMM005_TERMINAL_GIRIS">
+      <wsoap12:operation soapAction="urn:sap-com:document:sap:rfc:functions:ZMM_WS_TERMINAL_FUNCTIONS:ZMM005_TERMINAL_GIRISRequest" style="document" />
+      <wsdl:input>
+        <wsoap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsoap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZMM005_UYSTOKNAKLI_01">
+      <wsoap12:operation soapAction="urn:sap-com:document:sap:rfc:functions:ZMM_WS_TERMINAL_FUNCTIONS:ZMM005_UYSTOKNAKLI_01Request" style="document" />
+      <wsdl:input>
+        <wsoap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsoap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZMM005_UYSTOKNAKLI_03">
+      <wsoap12:operation soapAction="urn:sap-com:document:sap:rfc:functions:ZMM_WS_TERMINAL_FUNCTIONS:ZMM005_UYSTOKNAKLI_03Request" style="document" />
+      <wsdl:input>
+        <wsoap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsoap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZMM005_UYSTOKNAKLI_04">
+      <wsoap12:operation soapAction="urn:sap-com:document:sap:rfc:functions:ZMM_WS_TERMINAL_FUNCTIONS:ZMM005_UYSTOKNAKLI_04Request" style="document" />
+      <wsdl:input>
+        <wsoap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsoap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZMM005_UYSTOKNAKLI_05">
+      <wsoap12:operation soapAction="urn:sap-com:document:sap:rfc:functions:ZMM_WS_TERMINAL_FUNCTIONS:ZMM005_UYSTOKNAKLI_05Request" style="document" />
+      <wsdl:input>
+        <wsoap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsoap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZMM005_UYSTOKNAKLI_06">
+      <wsoap12:operation soapAction="urn:sap-com:document:sap:rfc:functions:ZMM_WS_TERMINAL_FUNCTIONS:ZMM005_UYSTOKNAKLI_06Request" style="document" />
+      <wsdl:input>
+        <wsoap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsoap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZMM005_UYSTOKNAKLI_07">
+      <wsoap12:operation soapAction="urn:sap-com:document:sap:rfc:functions:ZMM_WS_TERMINAL_FUNCTIONS:ZMM005_UYSTOKNAKLI_07Request" style="document" />
+      <wsdl:input>
+        <wsoap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsoap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZMM005_UYSTOKNAKLI_08">
+      <wsoap12:operation soapAction="urn:sap-com:document:sap:rfc:functions:ZMM_WS_TERMINAL_FUNCTIONS:ZMM005_UYSTOKNAKLI_08Request" style="document" />
+      <wsdl:input>
+        <wsoap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsoap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZMM005_UYSTOKNAKLI_09">
+      <wsoap12:operation soapAction="urn:sap-com:document:sap:rfc:functions:ZMM_WS_TERMINAL_FUNCTIONS:ZMM005_UYSTOKNAKLI_09Request" style="document" />
+      <wsdl:input>
+        <wsoap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsoap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZMM005_UYSTOKNAKLI_11">
+      <wsoap12:operation soapAction="urn:sap-com:document:sap:rfc:functions:ZMM_WS_TERMINAL_FUNCTIONS:ZMM005_UYSTOKNAKLI_11Request" style="document" />
+      <wsdl:input>
+        <wsoap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsoap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZMM007_DEPO_YERI">
+      <wsoap12:operation soapAction="urn:sap-com:document:sap:rfc:functions:ZMM_WS_TERMINAL_FUNCTIONS:ZMM007_DEPO_YERIRequest" style="document" />
+      <wsdl:input>
+        <wsoap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsoap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZMM007_GET_WERKS">
+      <wsoap12:operation soapAction="urn:sap-com:document:sap:rfc:functions:ZMM_WS_TERMINAL_FUNCTIONS:ZMM007_GET_WERKSRequest" style="document" />
+      <wsdl:input>
+        <wsoap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsoap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZMM007_REZERVASYONLU_01">
+      <wsoap12:operation soapAction="urn:sap-com:document:sap:rfc:functions:ZMM_WS_TERMINAL_FUNCTIONS:ZMM007_REZERVASYONLU_01Request" style="document" />
+      <wsdl:input>
+        <wsoap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsoap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZMM007_REZERVASYONLU_02">
+      <wsoap12:operation soapAction="urn:sap-com:document:sap:rfc:functions:ZMM_WS_TERMINAL_FUNCTIONS:ZMM007_REZERVASYONLU_02Request" style="document" />
+      <wsdl:input>
+        <wsoap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsoap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZMM007_REZERVASYONLU_03">
+      <wsoap12:operation soapAction="urn:sap-com:document:sap:rfc:functions:ZMM_WS_TERMINAL_FUNCTIONS:ZMM007_REZERVASYONLU_03Request" style="document" />
+      <wsdl:input>
+        <wsoap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsoap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZMM007_REZERVASYONLU_04">
+      <wsoap12:operation soapAction="urn:sap-com:document:sap:rfc:functions:ZMM_WS_TERMINAL_FUNCTIONS:ZMM007_REZERVASYONLU_04Request" style="document" />
+      <wsdl:input>
+        <wsoap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsoap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZMM007_REZERVASYONSUZ_00">
+      <wsoap12:operation soapAction="urn:sap-com:document:sap:rfc:functions:ZMM_WS_TERMINAL_FUNCTIONS:ZMM007_REZERVASYONSUZ_00Request" style="document" />
+      <wsdl:input>
+        <wsoap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsoap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZMM007_REZERVASYONSUZ_01">
+      <wsoap12:operation soapAction="urn:sap-com:document:sap:rfc:functions:ZMM_WS_TERMINAL_FUNCTIONS:ZMM007_REZERVASYONSUZ_01Request" style="document" />
+      <wsdl:input>
+        <wsoap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsoap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZMM007_REZERVASYONSUZ_02">
+      <wsoap12:operation soapAction="urn:sap-com:document:sap:rfc:functions:ZMM_WS_TERMINAL_FUNCTIONS:ZMM007_REZERVASYONSUZ_02Request" style="document" />
+      <wsdl:input>
+        <wsoap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsoap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZMM007_REZERVASYONSUZ_03">
+      <wsoap12:operation soapAction="urn:sap-com:document:sap:rfc:functions:ZMM_WS_TERMINAL_FUNCTIONS:ZMM007_REZERVASYONSUZ_03Request" style="document" />
+      <wsdl:input>
+        <wsoap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsoap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZMM007_REZERVASYONSUZ_04">
+      <wsoap12:operation soapAction="urn:sap-com:document:sap:rfc:functions:ZMM_WS_TERMINAL_FUNCTIONS:ZMM007_REZERVASYONSUZ_04Request" style="document" />
+      <wsdl:input>
+        <wsoap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsoap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZMM007_SAYIM">
+      <wsoap12:operation soapAction="urn:sap-com:document:sap:rfc:functions:ZMM_WS_TERMINAL_FUNCTIONS:ZMM007_SAYIMRequest" style="document" />
+      <wsdl:input>
+        <wsoap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsoap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZMM007_SAYIM_KAYDET">
+      <wsoap12:operation soapAction="urn:sap-com:document:sap:rfc:functions:ZMM_WS_TERMINAL_FUNCTIONS:ZMM007_SAYIM_KAYDETRequest" style="document" />
+      <wsdl:input>
+        <wsoap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsoap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZMM007_TOPLU_ALAN_DEGIS">
+      <wsoap12:operation soapAction="urn:sap-com:document:sap:rfc:functions:ZMM_WS_TERMINAL_FUNCTIONS:ZMM007_TOPLU_ALAN_DEGISRequest" style="document" />
+      <wsdl:input>
+        <wsoap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsoap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZMM007_TOPLU_ALAN_DEGIS_BUL">
+      <wsoap12:operation soapAction="urn:sap-com:document:sap:rfc:functions:ZMM_WS_TERMINAL_FUNCTIONS:ZMM007_TOPLU_ALAN_DEGIS_BULRequest" style="document" />
+      <wsdl:input>
+        <wsoap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsoap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZMM007_TOPLU_ALAN_DEGIS_SAVE">
+      <wsoap12:operation soapAction="urn:sap-com:document:sap:rfc:functions:ZMM_WS_TERMINAL_FUNCTIONS:ZMM007_TOPLU_ALAN_DEGIS_SAVERequest" style="document" />
+      <wsdl:input>
+        <wsoap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsoap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZMM007_TOP_IST_MLZ_LIST">
+      <wsoap12:operation soapAction="urn:sap-com:document:sap:rfc:functions:ZMM_WS_TERMINAL_FUNCTIONS:ZMM007_TOP_IST_MLZ_LISTRequest" style="document" />
+      <wsdl:input>
+        <wsoap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsoap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZMM007_TOP_IST_MLZ_SAVE">
+      <wsoap12:operation soapAction="urn:sap-com:document:sap:rfc:functions:ZMM_WS_TERMINAL_FUNCTIONS:ZMM007_TOP_IST_MLZ_SAVERequest" style="document" />
+      <wsdl:input>
+        <wsoap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsoap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZMM007_TOP_IST_PER_KONT">
+      <wsoap12:operation soapAction="urn:sap-com:document:sap:rfc:functions:ZMM_WS_TERMINAL_FUNCTIONS:ZMM007_TOP_IST_PER_KONTRequest" style="document" />
+      <wsdl:input>
+        <wsoap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsoap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZMM007_TOP_IST_PER_KONT_SAVE">
+      <wsoap12:operation soapAction="urn:sap-com:document:sap:rfc:functions:ZMM_WS_TERMINAL_FUNCTIONS:ZMM007_TOP_IST_PER_KONT_SAVERequest" style="document" />
+      <wsdl:input>
+        <wsoap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsoap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZSD_F_BAR_KONTROL">
+      <wsoap12:operation soapAction="urn:sap-com:document:sap:rfc:functions:ZMM_WS_TERMINAL_FUNCTIONS:ZSD_F_BAR_KONTROLRequest" style="document" />
+      <wsdl:input>
+        <wsoap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsoap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZSD_F_TERMINAL_YUKLEME_01">
+      <wsoap12:operation soapAction="urn:sap-com:document:sap:rfc:functions:ZMM_WS_TERMINAL_FUNCTIONS:ZSD_F_TERMINAL_YUKLEME_01Request" style="document" />
+      <wsdl:input>
+        <wsoap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsoap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ZSD_F_TERMINAL_YUKLEME_02">
+      <wsoap12:operation soapAction="urn:sap-com:document:sap:rfc:functions:ZMM_WS_TERMINAL_FUNCTIONS:ZSD_F_TERMINAL_YUKLEME_02Request" style="document" />
+      <wsdl:input>
+        <wsoap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <wsoap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="service_terminal_functions">
+    <wsdl:port name="binding_terminal_functions" binding="tns:binding_terminal_functions">
+      <soap:address location="http://ycbrdev01.yucelborugrup.local:8000/sap/bc/srt/rfc/sap/zmm_ws_terminal_functions/200/service_terminal_functions/binding_terminal_functions" />
+    </wsdl:port>
+    <wsdl:port name="binding_terminal_functions_SOAP12" binding="tns:binding_terminal_functions_SOAP12">
+      <wsoap12:address location="http://ycbrdev01.yucelborugrup.local:8000/sap/bc/srt/rfc/sap/zmm_ws_terminal_functions/200/service_terminal_functions/binding_terminal_functions" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

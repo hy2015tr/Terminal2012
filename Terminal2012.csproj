@@ -1,0 +1,381 @@
+﻿<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="3.5">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{154350D8-D6D9-4B60-BCF1-C40313950890}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Terminal2012</RootNamespace>
+    <AssemblyName>Terminal2012</AssemblyName>
+    <ProjectTypeGuids>{4D628B5B-2FBC-4AA6-8C16-197242AEB884};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <PlatformFamilyName>PocketPC</PlatformFamilyName>
+    <PlatformID>4118C335-430C-497f-BE48-11C3316B135E</PlatformID>
+    <OSVersion>5.01</OSVersion>
+    <DeployDirSuffix>YB.Terminal.RuloGiris</DeployDirSuffix>
+    <TargetFrameworkVersion>v2.0</TargetFrameworkVersion>
+    <NativePlatformName>Windows Mobile 5.0 Pocket PC SDK</NativePlatformName>
+    <FormFactorID>
+    </FormFactorID>
+    <ApplicationIcon>Resources\Terminal.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;$(PlatformFamilyName)</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <FileAlignment>512</FileAlignment>
+    <WarningLevel>4</WarningLevel>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE;$(PlatformFamilyName)</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <FileAlignment>512</FileAlignment>
+    <WarningLevel>4</WarningLevel>
+    <GenerateSerializationAssemblies>Off</GenerateSerializationAssemblies>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="mscorlib" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Windows.Forms.DataGrid" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Forms\frm15_GemiYuklemeSD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm15_GemiYuklemeSD.Designer.cs">
+      <DependentUpon>frm15_GemiYuklemeSD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frm14_BarkodSayimSD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm14_BarkodSayimSD.Designer.cs">
+      <DependentUpon>frm14_BarkodSayimSD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frm13_BarkodKontrolSD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm13_BarkodKontrolSD.Designer.cs">
+      <DependentUpon>frm13_BarkodKontrolSD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frm12_BarkodTestSD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm12_BarkodTestSD.Designer.cs">
+      <DependentUpon>frm12_BarkodTestSD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frm06_EmirsizYuklemeMM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm06_EmirsizYuklemeMM.Designer.cs">
+      <DependentUpon>frm06_EmirsizYuklemeMM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frm05_FasonGrupIciMM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm05_FasonGrupIciMM.Designer.cs">
+      <DependentUpon>frm05_FasonGrupIciMM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frm00_MalzemeAdres.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm00_MalzemeAdres.Designer.cs">
+      <DependentUpon>frm00_MalzemeAdres.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frm04_BarkodAdresMM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm04_BarkodAdresMM.Designer.cs">
+      <DependentUpon>frm04_BarkodAdresMM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frm03_BarkodIndirmeMM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm03_BarkodIndirmeMM.Designer.cs">
+      <DependentUpon>frm03_BarkodIndirmeMM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frm02_BarkodYuklemeMM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm02_BarkodYuklemeMM.Designer.cs">
+      <DependentUpon>frm02_BarkodYuklemeMM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frm00_MainMenu.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm00_MainMenu.Designer.cs">
+      <DependentUpon>frm00_MainMenu.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\frm01_RuloGirisMM.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm01_RuloGirisMM.Designer.cs">
+      <DependentUpon>frm01_RuloGirisMM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Alpha\LibAlpha.cs" />
+    <Compile Include="Alpha\Program.cs" />
+    <Compile Include="Forms\frm11_BarkodYuklemeSD.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\frm11_BarkodYuklemeSD.Designer.cs">
+      <DependentUpon>frm11_BarkodYuklemeSD.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\frm15_GemiYuklemeSD.resx">
+      <DependentUpon>frm15_GemiYuklemeSD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm14_BarkodSayimSD.resx">
+      <DependentUpon>frm14_BarkodSayimSD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm13_BarkodKontrolSD.resx">
+      <DependentUpon>frm13_BarkodKontrolSD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm12_BarkodTestSD.resx">
+      <DependentUpon>frm12_BarkodTestSD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm06_EmirsizYuklemeMM.resx">
+      <DependentUpon>frm06_EmirsizYuklemeMM.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm05_FasonGrupIciMM.resx">
+      <DependentUpon>frm05_FasonGrupIciMM.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm00_MalzemeAdres.resx">
+      <DependentUpon>frm00_MalzemeAdres.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm04_BarkodAdresMM.resx">
+      <DependentUpon>frm04_BarkodAdresMM.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm03_BarkodIndirmeMM.resx">
+      <DependentUpon>frm03_BarkodIndirmeMM.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm02_BarkodYuklemeMM.resx">
+      <DependentUpon>frm02_BarkodYuklemeMM.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm00_MainMenu.resx">
+      <DependentUpon>frm00_MainMenu.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm01_RuloGirisMM.resx">
+      <DependentUpon>frm01_RuloGirisMM.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\frm11_BarkodYuklemeSD.resx">
+      <DependentUpon>frm11_BarkodYuklemeSD.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <Compile Include="Web References\WR\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.map</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferences Include="Web References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\Terminal.ico" />
+    <Content Include="Resources\YBLogo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <WebReferenceUrl Include="http://ycbrdev01.yucelborugrup.local:8000/sap/bc/srt/wsdl/srvc_50F6FE4EC1B70810E10080000A10022F/wsdl11/allinone/ws_policy/document%3fsap-client=200">
+      <UrlBehavior>Static</UrlBehavior>
+      <RelPath>Web References\WR\</RelPath>
+      <UpdateFromURL>http://ycbrdev01.yucelborugrup.local:8000/sap/bc/srt/wsdl/srvc_50F6FE4EC1B70810E10080000A10022F/wsdl11/allinone/ws_policy/document%3fsap-client=200</UpdateFromURL>
+      <ServiceLocationURL>
+      </ServiceLocationURL>
+      <CachedDynamicPropName>
+      </CachedDynamicPropName>
+      <CachedAppSettingsObjectName>
+      </CachedAppSettingsObjectName>
+      <CachedSettingsPropName>
+      </CachedSettingsPropName>
+    </WebReferenceUrl>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Web References\WR\document.wsdl" />
+    <None Include="Web References\WR\Reference.map">
+      <Generator>MSDiscoCodeGenerator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
+    <None Include="Web References\WR\ZMM005_FISKAYITDURUMUResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WR\ZMM005_GOODSMVT_CANCELResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WR\ZMM005_MALZEMELOKASYON_01Response.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WR\ZMM005_MALZEMELOKASYON_02Response.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WR\ZMM005_MODEResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WR\ZMM005_RULOGIRIS_01Response.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WR\ZMM005_RULOGIRIS_02Response.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WR\ZMM005_SAYIMResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WR\ZMM005_SAYIM_RESETResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WR\ZMM005_SAYIM_SAVEResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WR\ZMM005_TERMINAL_BAKIMResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WR\ZMM005_TERMINAL_GIRISResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WR\ZMM005_UYSTOKNAKLI_01Response.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WR\ZMM005_UYSTOKNAKLI_03Response.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WR\ZMM005_UYSTOKNAKLI_04Response.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WR\ZMM005_UYSTOKNAKLI_05Response.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WR\ZMM005_UYSTOKNAKLI_06Response.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WR\ZMM005_UYSTOKNAKLI_07Response.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WR\ZMM005_UYSTOKNAKLI_08Response.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WR\ZMM005_UYSTOKNAKLI_09Response.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WR\ZMM005_UYSTOKNAKLI_11Response.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WR\ZMM007_DEPO_YERIResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WR\ZMM007_GET_WERKSResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WR\ZMM007_REZERVASYONLU_01Response.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WR\ZMM007_REZERVASYONLU_02Response.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WR\ZMM007_REZERVASYONLU_03Response.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WR\ZMM007_REZERVASYONLU_04Response.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WR\ZMM007_REZERVASYONSUZ_00Response.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WR\ZMM007_REZERVASYONSUZ_01Response.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WR\ZMM007_REZERVASYONSUZ_02Response.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WR\ZMM007_REZERVASYONSUZ_03Response.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WR\ZMM007_REZERVASYONSUZ_04Response.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WR\ZMM007_SAYIMResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WR\ZMM007_SAYIM_KAYDETResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WR\ZMM007_TOPLU_ALAN_DEGISResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WR\ZMM007_TOPLU_ALAN_DEGIS_BULResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WR\ZMM007_TOPLU_ALAN_DEGIS_SAVEResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WR\ZMM007_TOP_IST_MLZ_LISTResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WR\ZMM007_TOP_IST_MLZ_SAVEResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WR\ZMM007_TOP_IST_PER_KONTResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WR\ZMM007_TOP_IST_PER_KONT_SAVEResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WR\ZSD_F_BAR_KONTROLResponse.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WR\ZSD_F_TERMINAL_YUKLEME_01Response.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+    <None Include="Web References\WR\ZSD_F_TERMINAL_YUKLEME_02Response.datasource">
+      <DependentUpon>Reference.map</DependentUpon>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CompactFramework.CSharp.targets" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}">
+        <HostingProcess disable="1" />
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <Target Name="PlatformVerificationTask">
+  </Target>
+</Project>
