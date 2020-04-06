@@ -160,7 +160,7 @@ aliyoruz… Boylece, canli
 
 ![](media/84f95dd6ed5f24d4aa199d6d54705b3d.png)
 
- ## [9] SOAManer in Web Browser da Açılmama Sorunu :
+ ## [9] SOAManager in Web Browser da Açılmama Sorunu :
 
  Bazi makinalarda SOAManager servis tanimlama arayuzune web uzerinden
  erismekte sorun yasanabiliniyor. Bu tur durumlarda sorunu asabilmek icin
